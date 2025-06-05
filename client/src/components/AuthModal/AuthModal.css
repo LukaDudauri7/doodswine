@@ -1,0 +1,104 @@
+.auth-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.auth-modal {
+  background-color: #fff0f5;
+  padding: 30px 40px;
+  border-radius: 15px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Close Button */
+.auth-modal .close-button {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #7b3e19;
+}
+
+/* Title */
+.auth-modal h2 {
+  text-align: center;
+  color: #7b3e19;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-family: 'Fredoka One', cursive;
+}
+
+/* Form */
+.auth-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Input Fields */
+.auth-modal input {
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #fff;
+  transition: border 0.3s;
+}
+
+.auth-modal input:focus {
+  border-color: #a45d30;
+  outline: none;
+}
+
+/* Submit Button */
+.auth-modal button[type="submit"] {
+  padding: 12px;
+  background-color: #7b3e19;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.auth-modal button[type="submit"]:hover {
+  background-color: #5a2c13;
+  transform: scale(1.02);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+    .auth-modal {
+        width: 75%;
+        padding: 20px;
+    }
+}

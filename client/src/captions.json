@@ -1,0 +1,74 @@
+{
+  "ka": {
+    "about": {
+      "title": "ჩვენ შესახებ",
+      "shortText": "Dood's wine უძველეს ტრადიციებზე დაფუძნებული ღვინის მწარმოებელი კომპანიაა, რომელიც მაღალი ხარისხის პროდუქტის წარმოებაზეა ორიენტირებული. ჩვენი მიზანია მომხმარებელს შევთავაზოთ საუკეთესო ხარისხის ღვინო, რომელიც ასახავს ქართული ღვინის კულტურის მდიდარ ისტორიას და ტრადიციებს.",
+      "fullText": "Dood's wine  უძველეს ტრადიციებზე დაფუძნებული ღვინის მწარმოებელი კომპანიაა, რომელიც მაღალი ხარისხის პროდუქტის წარმოებაზეა ორიენტირებული. ჩვენი მიზანია მომხმარებელს შევთავაზოთ საუკეთესო ხარისხის ღვინო, რომელიც ასახავს ქართული ღვინის კულტურის მდიდარ ისტორიას და ტრადიციებს. დღესდღეობით, კომპანიის ასორტიმენტი ისეთ პრემიუმ ღვინოებს მოიცავს, როგორიცაა გორული მწვანე, ჩინური, რქაწითელი, ალადასტური და დირბულა. ხოლო რაც შეეხება ღვინის ბოთლის დიზაინსა და ეტიკეტს, მათზეც ჩვენი გუნდი მუშაობს და რეალობაში გადმოაქვს ის იდეები და სურვილები, რასაც მომხმარებლები ისურვებენ.",
+      "seeMore": "იხილეთ ვრცლად"
+    },
+    "home": {
+      "brandName": "ღვინისა და ხელოვნების შერწყმა"
+    },
+    "header": {
+        "headerHome": "მთავარი",
+        "headerProducts": "პროდუქტები",
+        "headerAbout": "ჩვენ შესახებ",
+        "logIn": "შესვლა",
+        "signUp": "რეგისტრაცია",
+        "logOut": "გამოსვლა"
+    },
+    "footer": {
+        "copyright": "© 2025 წელი Dood's Wine. ყველა უფლება დაცულია.",
+        "terms": "წესები და პირობები"
+    },
+    "wines": {
+        "ourWines": "ჩვენი ღვინოები",
+        "mtsvane": "გორული მწვანე",
+        "mtsvaneDesc": "ნახევრად ტკბილი თეთრი ღვინო ქართლიდან.",
+        "rkatsiteli": "რქაწითელი",
+        "rkatsiteliDesc": "კახური თეთრი ღვინო.",
+        "chinuri": "ჩინური",
+        "chinuriDesc": "ნახევრად ტკბილი თეთრი ღვინო, პოპულარული არჩევანი.",
+        "aladasturi": "ალადასტური",
+        "aladasturiDesc": "ნახევრად ტკბილი წითელი ღვინო ქართლიდან.",
+        "dirbula": "დირბულა",
+        "dirbulaDesc": "ნახევრად ტკბილი წითელი ღვინო, პოპულარული არჩევანი."
+    }
+  },
+  "en": {
+    "about": {
+      "title": "About Us",
+      "shortText": "Dood's wine is a wine-producing company based on ancient traditions, focused on delivering high-quality products. Our goal is to offer the best quality wine that reflects the rich history and traditions of Georgian wine culture.",
+      "fullText": "Dood's wine is a wine-producing company rooted in ancient traditions, focused on delivering high-quality products. Our goal is to offer the best quality wine that reflects the rich history and traditions of Georgian wine culture. Today, the company offers a premium selection of wines including Goruli Mtsvane, Chinuri, Rkatsiteli, Aladasturi, and Dirbula. As for the bottle design and labeling, our team is dedicated to bringing customer ideas and desires to life with each product.",
+      "seeMore": "See more"
+    },
+    "home": {
+      "brandName": "WHERE WINE MEETS ART"
+    },
+    "header": {
+        "headerHome": "Home",
+        "headerProducts": "Products",
+        "headerAbout": "About Us",
+        "logIn": "Login",
+        "signUp": "Sign Up",
+        "logOut": "Logout"
+    },
+    "footer": {
+        "copyright": "Copyright © 2025 Dood's Wine. All Rights Reserved.",
+        "terms": "Terms and Conditions"
+    },
+    "wines": {
+        "ourWines": "Our Wines",
+        "mtsvane": "Goruli Mtsvane",
+        "mtsvaneDesc": "semi-sweet white wine from Kartli.",
+        "rkatsiteli": "Rkatsiteli",
+        "rkatsiteliDesc": "Kakhetian white wine.",
+        "chinuri": "Chinuri",
+        "chinuriDesc": "Semi-sweet white wine, a popular choice.",
+        "aladasturi": "Aladasturi",
+        "aladasturiDesc": "semi-sweet red wine from Kartli.",
+        "dirbula": "Dirbula",
+        "dirbulaDesc": "Semi-sweet red wine, a popular choice."
+    }
+  }
+}

@@ -1,0 +1,229 @@
+/* order-page.css */
+
+.order-page {
+  padding: 80px 20px;
+  background-color: #1a1a1a;
+  color: #f8f1e1;
+  font-family: 'Georgia', serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.order-page h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 38px;
+  font-weight: 700;
+  color: #2e0f0f;
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.wine-options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 50px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.wine-option {
+  background: #222222;
+  padding: 15px 35px;
+  border-radius: 50px;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  color: #f8f1e1;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  font-weight: 500;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.wine-option:hover {
+  border-color: #2e0f0f;
+  transform: translateY(-8px) scale(1.02);
+  background-color: #333;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.wine-option.selected {
+  border-color: #2e0f0f;
+  background: linear-gradient(135deg, #722f37, #a91b47);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5), 0 0 15px #2e0f0f;
+  transform: translateY(-2px);
+}
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 450px;
+  width: 100%;
+  background-color: #121212;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.order-form input,
+.order-form textarea {
+  width: calc(100% - 30px);
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #333333;
+  color: #f8f1e1;
+  border: 1px solid #555;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-form input:focus,
+.order-form textarea:focus {
+  border-color: #2e0f0f;
+  outline: none;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+}
+
+.order-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.order-form button {
+  margin-top: 30px;
+  padding: 15px 35px;
+  background: linear-gradient(135deg, #a8003a, #2e0f0f);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.order-form button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 25px #2e0f0f;
+  filter: brightness(1.2);
+}
+
+.success-message {
+  margin-top: 30px;
+  color: #2e0f0f;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.4rem;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  animation: fadeInOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  20% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* რესპონსივობა */
+@media (max-width: 768px) {
+  .order-page {
+    padding: 60px 15px;
+  }
+  .order-page h2 {
+    font-size: 30px;
+  }
+  .wine-options {
+    flex-direction: column;
+    align-items: center;
+  }
+  .wine-option {
+    width: 80%;
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+  .order-form {
+    padding: 30px;
+    max-width: 90%;
+  }
+  .order-form input,
+  .order-form textarea {
+    padding: 10px;
+    font-size: 15px;
+  }
+  .order-form button {
+    padding: 12px 30px;
+  }
+  .success-message {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .order-page h2 {
+    font-size: 26px;
+  }
+  .wine-option {
+    width: 95%;
+  }
+  .order-form {
+    padding: 20px;
+  }
+}
+
+/* ღვინის ასარჩევი (Select) სტილები */
+.wine-select {
+  appearance: none; /* ბრაუზერის ნაგულისხმევი სტილების მოხსნა */
+  width: calc(100% - 10px);
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #333333;
+  color: #f8f1e1;
+  border: 1px solid #555;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Poppins', sans-serif; /* ინფუთების მსგავსი შრიფტი */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%232e0f0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>'); /* ოქროსფერი ისარი */
+  background-repeat: no-repeat;
+  background-position: right 15px center; /* ისრის პოზიცია */
+  background-size: 20px; /* ისრის ზომა */
+}
+
+.wine-select:hover {
+  border-color: #2e0f0f;
+}
+
+.wine-select:focus {
+  border-color: #2e0f0f;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+}
+
+/* Select-ის option ელემენტების სტილი (ბრაუზერებზე შეზღუდულია) */
+.wine-select option {
+  background-color: #333333;
+  color: #f8f1e1;
+  padding: 10px;
+}
+.order-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

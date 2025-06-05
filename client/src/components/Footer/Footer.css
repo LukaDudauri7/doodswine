@@ -1,0 +1,25 @@
+.footer{
+    position: relative;
+    color: white;
+    z-index: 10;
+    text-align: center;
+    background-color: #2e0f0f;
+}
+.copyright{
+    cursor: pointer;
+}
+.footer-links{
+    cursor: pointer;
+    display: flex;
+    gap: 30px;
+}
+.footer-links div:nth-child(1):hover,
+.footer-links div:nth-child(2):hover,
+.copyright:hover {
+    color: wheat;
+}
+.footer > div {
+    display: flex;
+    justify-content: space-around;
+    margin: 25px;
+}

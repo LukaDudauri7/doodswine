@@ -1,0 +1,217 @@
+/* src/components/Loader/Loader.css */
+
+/* CSS Variables */
+:root {
+  --loader-brand-gold: #d4af37;
+  --loader-dark-bg: #1a0f0a;
+  --loader-medium-bg: #2c1810;
+  --loader-wine-dark: #722f37;
+  --loader-wine-medium: #8b1538;
+  --loader-wine-light: #a91b47;
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, var(--loader-dark-bg) 0%, var(--loader-medium-bg) 50%, var(--loader-dark-bg) 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  overflow: hidden;
+  font-family: 'Georgia', serif;
+}
+
+.brand-title {
+  color: var(--loader-brand-gold);
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  letter-spacing: 3px;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.wine-glass-wrapper {
+  position: relative;
+  width: 140px;
+  height: 200px;
+  margin-bottom: 2rem;
+}
+
+.wine-glass-body {
+  width: 140px;
+  height: 160px;
+  border: 4px solid var(--loader-brand-gold);
+  border-top: none;
+  border-radius: 0 0 70px 70px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  box-shadow: 
+    inset 0 0 30px rgba(212, 175, 55, 0.2),
+    0 0 30px rgba(212, 175, 55, 0.3),
+    inset -10px 0 20px rgba(0,0,0,0.2);
+}
+
+.wine-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--wine-progress, 0%); /* CSS Variable for dynamic height */
+  background: linear-gradient(to top, var(--loader-wine-dark) 0%, var(--loader-wine-medium) 50%, var(--loader-wine-light) 80%, var(--loader-brand-gold) 100%);
+  border-radius: 0 0 66px 66px;
+  transition: height 0.3s ease-out; /* Still need transition for smooth fill */
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+.wine-liquid-surface {
+  position: absolute;
+  top: -4px;
+  left: 10%;
+  right: 10%;
+  height: 8px;
+  background: linear-gradient(90deg, var(--loader-wine-light), var(--loader-brand-gold), var(--loader-wine-light));
+  border-radius: 50%;
+  opacity: 0.9;
+  animation: wave 2s ease-in-out infinite;
+}
+
+.wine-reflection {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  width: 30%;
+  height: 60%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.wine-glass-top-ring {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 144px;
+  height: 8px;
+  background: linear-gradient(90deg, #b8941f, var(--loader-brand-gold), #b8941f);
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+}
+
+.wine-glass-stem {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 50px;
+  background: linear-gradient(to bottom, var(--loader-brand-gold), #b8941f);
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.wine-glass-base {
+  position: absolute;
+  bottom: -40px; /* Adjust to sit below the stem */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 6px;
+  background: linear-gradient(90deg, #b8941f, var(--loader-brand-gold), #b8941f);
+  border-radius: 25px;
+  box-shadow: 0 2px 15px rgba(212, 175, 55, 0.4);
+}
+
+.loader-progress-text {
+    color: var(--loader-brand-gold);
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    position: relative;
+    top: 12px;
+}
+
+.loader-status-text {
+  color: var(--loader-brand-gold);
+  font-size: 1.2rem;
+  opacity: 0.8;
+  letter-spacing: 1px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Bubble CSS classes */
+.bubble {
+  position: absolute;
+  background: rgba(212, 175, 55, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Individual bubble animations using CSS variables for size and position, and nth-child for delays */
+.bubble:nth-child(1) {
+  width: 4px; height: 4px;
+  left: 20%; bottom: 10%;
+  animation: bubble-float 2s infinite ease-in-out;
+  animation-delay: 0.1s;
+}
+.bubble:nth-child(2) {
+  width: 3px; height: 3px;
+  left: 50%; bottom: 20%;
+  animation: bubble-float 2.2s infinite ease-in-out;
+  animation-delay: 0.4s;
+}
+.bubble:nth-child(3) {
+  width: 5px; height: 5px;
+  left: 70%; bottom: 5%;
+  animation: bubble-float 1.8s infinite ease-in-out;
+  animation-delay: 0.7s;
+}
+.bubble:nth-child(4) {
+  width: 3px; height: 3px;
+  left: 35%; bottom: 15%;
+  animation: bubble-float 2.1s infinite ease-in-out;
+  animation-delay: 0.9s;
+}
+.bubble:nth-child(5) {
+  width: 4.5px; height: 4.5px;
+  left: 60%; bottom: 25%;
+  animation: bubble-float 1.9s infinite ease-in-out;
+  animation-delay: 1.2s;
+}
+.bubble:nth-child(6) {
+  width: 3.5px; height: 3.5px;
+  left: 25%; bottom: 30%;
+  animation: bubble-float 2.3s infinite ease-in-out;
+  animation-delay: 1.5s;
+}
+
+/* Keyframe Animations */
+@keyframes glow {
+  0% { text-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+  100% { text-shadow: 0 0 30px rgba(212, 175, 55, 0.8), 0 0 40px rgba(212, 175, 55, 0.6); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleX(1) scaleY(1); }
+  50% { transform: scaleX(1.05) scaleY(0.8); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes bubble-float {
+  0% { transform: translateY(0) scale(0.5); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-80px) scale(1.2); opacity: 0; } /* Adjust translateY as needed */
+}
