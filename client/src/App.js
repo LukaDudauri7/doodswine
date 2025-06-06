@@ -149,7 +149,7 @@ function App() {
       setLoading(false); // როდესაც ყველაფერი ჩაიტვირთება, ლოადერი გაქრება
     }, 2900);
 
-    return () => clearTimeout(timer); // გაწმენდა კომპონენტის განადგურებისას
+    return () => clearTimeout(timer);
   }, []);
   return (
     <Router>
