@@ -142,6 +142,10 @@
 
 /* რესპონსივობა */
 @media (max-width: 768px) {
+  .wine-select {
+    width: calc(100% - 10px) !important;
+    padding: 10px !important;
+  }
   .order-page {
     padding: 60px 15px;
   }
@@ -189,8 +193,8 @@
 /* ღვინის ასარჩევი (Select) სტილები */
 .wine-select {
   appearance: none; /* ბრაუზერის ნაგულისხმევი სტილების მოხსნა */
-  width: calc(100% - 10px);
-  padding: 10px;
+  width: 100%;
+  padding: 15px;
   border: none;
   border-radius: 8px;
   font-size: 15px;
