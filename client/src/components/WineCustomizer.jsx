@@ -5,9 +5,10 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 
 // კომპონენტი ბოთლისთვის
-export function WineBottle({ labelText = "ჩემი ღვინო" }) {
+export function WineBottle({ labelText = "ჩემი ღვინო", capColor = "#8B0000" }) {
   const { nodes } = useGLTF("/models/wine_bottle.glb");
   const labelRef = useRef();
+  const capRef = useRef();
 
   // დინამიური ტექსტურა ლეიბლისთვის
   useEffect(() => {
@@ -32,10 +33,20 @@ export function WineBottle({ labelText = "ჩემი ღვინო" }) {
     }
   }, [labelText]);
 
-  // ყველა mesh-ს ვაგენერირებთ, ერთს ვუკავშირდებით label-ს
+  // ჩაჩის ფერის განახლება
+  useEffect(() => {
+    if (capRef.current) {
+      // ახალი მასალის შექმნა ფერით
+      capRef.current.material = capRef.current.material.clone();
+      capRef.current.material.color.set(capColor);
+      capRef.current.material.needsUpdate = true;
+    }
+  }, [capColor]);
+
+  // ყველა mesh-ს ვაგენერირებთ
   const meshKeys = [
     "Object_5",
-    "Object_6",
+    "Object_6", 
     "Object_7",
     "Object_8",
     "Object_9",
@@ -45,20 +56,26 @@ export function WineBottle({ labelText = "ჩემი ღვინო" }) {
 
   return (
     <group
-      scale={[0.8, 0.8, 0.8]} // ოპტიმალური ზომა
-      position={[0, -1.5, 0]} // ოდნავ ქვემოთ, რომ არ იჭრებოდეს
-      rotation={[Math.PI, 0, 0]} // საჭირო შემთხვევაში შებრუნება
+      scale={[0.8, 0.8, 0.8]}
+      position={[0, -1.5, 0]}
+      rotation={[Math.PI, 0, 0]}
     >
-      {meshKeys.map((key, i) => (
-        <mesh
-          key={key}
-          geometry={nodes[key].geometry}
-          material={nodes[key].material}
-          ref={i === 0 ? labelRef : null}
-          castShadow
-          receiveShadow
-        />
-      ))}
+      {meshKeys.map((key, i) => {
+        // Object_11 არის ჩაჩი
+        const isCap = key === "Object_11";
+        const isLabel = key === "Object_5"; // ლეიბლისთვის
+        
+        return (
+          <mesh
+            key={key}
+            geometry={nodes[key].geometry}
+            material={nodes[key].material}
+            ref={isCap ? capRef : (isLabel ? labelRef : null)}
+            castShadow
+            receiveShadow
+          />
+        );
+      })}
     </group>
   );
 }
@@ -66,12 +83,12 @@ export function WineBottle({ labelText = "ჩემი ღვინო" }) {
 useGLTF.preload("/models/wine_bottle.glb");
 
 // App კომპონენტი
-export default function App() {
+export default function App({ capColor = "#8B0000" }) {
   return (
     <Canvas
       shadows
       camera={{ position: [0, 2, 5], fov: 50 }}
-      style={{ width: "", height: "80vh", background: "#f0f0f0" }}
+      style={{ width: "100%", height: "80vh", background: "#f0f0f0" }}
     >
       <ambientLight intensity={0.5} />
       <directionalLight
@@ -82,9 +99,9 @@ export default function App() {
         shadow-mapSize-height={1024}
       />
       <Suspense fallback={null}>
-        <WineBottle labelText="ჩემი ღვინო" />
+        <WineBottle labelText="ჩემი ღვინო" capColor={capColor} />
       </Suspense>
-      <OrbitControls />
+      <OrbitControls enableZoom={false}/>
     </Canvas>
   );
 }
