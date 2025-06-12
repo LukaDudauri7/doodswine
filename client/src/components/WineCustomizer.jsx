@@ -63,7 +63,7 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
       {meshKeys.map((key, i) => {
         // Object_11 არის ჩაჩი
         const isCap = key === "Object_11";
-        const isLabel = key === "Object_5"; // ლეიბლისთვის
+        const isLabel = key === "Object_13"; // ლეიბლისთვის
         
         return (
           <mesh
@@ -83,7 +83,7 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
 useGLTF.preload("/models/wine_bottle.glb");
 
 // App კომპონენტი
-export default function App({ capColor = "#8B0000" }) {
+export default function App({ capColor = "#8B0000", labelText = "ჩემი ღვინო" }) {
   return (
     <Canvas
       shadows
@@ -99,7 +99,7 @@ export default function App({ capColor = "#8B0000" }) {
         shadow-mapSize-height={1024}
       />
       <Suspense fallback={null}>
-        <WineBottle labelText="ჩემი ღვინო" capColor={capColor} />
+        <WineBottle labelText={labelText} capColor={capColor} />
       </Suspense>
       <OrbitControls enableZoom={false}/>
     </Canvas>

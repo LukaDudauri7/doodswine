@@ -29,7 +29,7 @@ function AppContent() {
     { name: "მწვანე", value: "#004d00" },
     { name: "თეთრი", value: "#FFFFFF" }
   ];
-
+  const [labelText, setLabelText] = useState("ჩემი ღვინო");
   const [capColor, setCapColor] = useState(predefinedColors[0].value);
 
   const { language } = useLanguage();
@@ -140,46 +140,65 @@ function AppContent() {
 
         {location.pathname === "/" && (
           <>
-        <div>
-            <h1 style={{ textAlign: "center" }}>შეარჩიე დიზაინი 🍷</h1>
+   <div>
+      <h1 style={{ textAlign: "center" }}>ჩემს ღვინოს შეარჩიე დიზაინი 🍷</h1>
 
-            <div style={{ textAlign: "center", marginBottom: 20 }}>
-              <p style={{ fontSize: "16px", marginBottom: 10 }}>ჩაჩის ფერი:</p>
-              <div style={{ 
-                display: "flex", 
-                justifyContent: "center", 
-                gap: "10px", 
-                flexWrap: "wrap" 
-              }}>
-                {predefinedColors.map((color) => (
-                  <div
-                    key={color.value}
-                    onClick={() => setCapColor(color.value)}
-                    style={{
-                      width: "50px",
-                      height: "50px",
-                      backgroundColor: color.value,
-                      border: capColor === color.value ? "3px solid #333" : "2px solid #ccc",
-                      borderRadius: "50%",
-                      cursor: "pointer",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      transition: "all 0.2s ease",
-                      boxShadow: capColor === color.value ? "0 0 10px rgba(0,0,0,0.3)" : "none"
-                    }}
-                    title={color.name}
-                  >
-                    {capColor === color.value && (
-                      <span style={{ color: "white", fontSize: "20px" }}>✓</span>
-                    )}
-                  </div>
-                ))}
-              </div>
+      <div style={{ textAlign: "center", marginBottom: 20 }}>
+        <div style={{ marginBottom: 15 }}>
+          <label style={{ display: "block", marginBottom: 5, fontSize: "16px" }}>
+            ლეიბლის ტექსტი:
+          </label>
+          <input
+            type="text"
+            value={labelText}
+            onChange={(e) => setLabelText(e.target.value)}
+            placeholder="ჩაწერეთ ტექსტი..."
+            style={{
+              padding: "8px 12px",
+              fontSize: "16px",
+              borderRadius: "5px",
+              border: "2px solid #ccc",
+              width: "200px"
+            }}
+          />
+        </div>
+        
+        <p style={{ fontSize: "16px", marginBottom: 10 }}>ჩაჩის ფერი:</p>
+        <div style={{ 
+          display: "flex", 
+          justifyContent: "center", 
+          gap: "10px", 
+          flexWrap: "wrap" 
+        }}>
+          {predefinedColors.map((color) => (
+            <div
+              key={color.value}
+              onClick={() => setCapColor(color.value)}
+              style={{
+                width: "50px",
+                height: "50px",
+                backgroundColor: color.value,
+                border: capColor === color.value ? "3px solid #333" : "2px solid #ccc",
+                borderRadius: "50%",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "all 0.2s ease",
+                boxShadow: capColor === color.value ? "0 0 10px rgba(0,0,0,0.3)" : "none"
+              }}
+              title={color.name}
+            >
+              {capColor === color.value && (
+                <span style={{ color: "white", fontSize: "20px" }}>✓</span>
+              )}
             </div>
+          ))}
+        </div>
+      </div>
 
-            <WineCustomizer capColor={capColor} />
-          </div>
+      <WineCustomizer capColor={capColor} labelText={labelText} />
+    </div>
             <Wine />
             <OrderPage />
             <About />
