@@ -140,7 +140,7 @@ function AppContent() {
 
         {location.pathname === "/" && (
           <>
-   <div>
+  <div>
       <h1 style={{ textAlign: "center" }}>ჩემს ღვინოს შეარჩიე დიზაინი 🍷</h1>
 
       <div style={{ textAlign: "center", marginBottom: 20 }}>
@@ -148,17 +148,19 @@ function AppContent() {
           <label style={{ display: "block", marginBottom: 5, fontSize: "16px" }}>
             ლეიბლის ტექსტი:
           </label>
-          <input
-            type="text"
+          <textarea
             value={labelText}
             onChange={(e) => setLabelText(e.target.value)}
-            placeholder="ჩაწერეთ ტექსტი..."
+            placeholder="ჩაწერეთ ტექსტი... (Enter - ახალი ხაზი)"
+            rows="3"
             style={{
               padding: "8px 12px",
               fontSize: "16px",
               borderRadius: "5px",
               border: "2px solid #ccc",
-              width: "200px"
+              width: "200px",
+              resize: "vertical",
+              fontFamily: "inherit"
             }}
           />
         </div>

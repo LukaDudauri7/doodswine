@@ -20,9 +20,17 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
     ctx.fillStyle = "#fff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#000";
-    ctx.font = "bold 40px sans-serif";
+    ctx.font = "bold 30px sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText(labelText, canvas.width / 2, 130);
+
+    // ტექსტს ვყოფთ ხაზების მიხედვით
+    const lines = labelText.split('\n');
+    const lineHeight = 40;
+    const startY = (canvas.height - (lines.length - 1) * lineHeight) / 2;
+
+    lines.forEach((line, index) => {
+      ctx.fillText(line, canvas.width / 2, startY + index * lineHeight);
+    });
 
     const texture = new THREE.CanvasTexture(canvas);
     texture.needsUpdate = true;
