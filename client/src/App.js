@@ -29,7 +29,7 @@ function AppContent() {
     { name: "მწვანე", value: "#004d00" },
     { name: "თეთრი", value: "#FFFFFF" }
   ];
-  const [labelText, setLabelText] = useState("ჩემი ღვინო");
+  const [labelText, setLabelText] = useState("შექმენი შენი ეტიკეტი");
   const [capColor, setCapColor] = useState(predefinedColors[0].value);
 
   const { language } = useLanguage();
@@ -160,7 +160,8 @@ function AppContent() {
               border: "2px solid #ccc",
               width: "200px",
               resize: "vertical",
-              fontFamily: "inherit"
+              fontFamily: "inherit",
+              textAlign: "center",
             }}
           />
         </div>
@@ -180,7 +181,7 @@ function AppContent() {
                 width: "50px",
                 height: "50px",
                 backgroundColor: color.value,
-                border: capColor === color.value ? "3px solid #333" : "2px solid #ccc",
+                border: capColor === color.value ? "2px solid #333" : "2px solid #ccc",
                 borderRadius: "50%",
                 cursor: "pointer",
                 display: "flex",

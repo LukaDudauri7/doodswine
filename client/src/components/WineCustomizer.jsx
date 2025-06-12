@@ -13,26 +13,43 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
   // დინამიური ტექსტურა ლეიბლისთვის
   useEffect(() => {
     const canvas = document.createElement("canvas");
-    canvas.width = 512;
-    canvas.height = 256;
+    canvas.width = 1024; // უკეთესი ხარისხისთვის
+    canvas.height = 512;
     const ctx = canvas.getContext("2d");
 
-    ctx.fillStyle = "#fff";
+    // მაღალი ხარისხის რენდერინგი
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+
+    // თეთრი ფონი
+    ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#000";
-    ctx.font = "bold 30px sans-serif";
+    
+    // შავი ტექსტი
+    ctx.fillStyle = "#000000";
+    ctx.font = "bold 60px Georgia, serif";
     ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
 
     // ტექსტს ვყოფთ ხაზების მიხედვით
     const lines = labelText.split('\n');
-    const lineHeight = 40;
-    const startY = (canvas.height - (lines.length - 1) * lineHeight) / 2;
+    const lineHeight = 80;
+    const totalHeight = lines.length * lineHeight;
+    const startY = (canvas.height - totalHeight) / 2 + lineHeight / 2;
 
     lines.forEach((line, index) => {
-      ctx.fillText(line, canvas.width / 2, startY + index * lineHeight);
+      const y = startY + index * lineHeight;
+      // ტექსტის კონტური უკეთესი ხედვისთვის
+      ctx.strokeStyle = "#cccccc";
+      ctx.lineWidth = 2;
+      ctx.strokeText(line, canvas.width / 2, y);
+      ctx.fillText(line, canvas.width / 2, y);
     });
 
     const texture = new THREE.CanvasTexture(canvas);
+    texture.generateMipmaps = false;
+    texture.minFilter = THREE.LinearFilter;
+    texture.magFilter = THREE.LinearFilter;
     texture.needsUpdate = true;
 
     if (labelRef.current) {
@@ -69,9 +86,10 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
       rotation={[Math.PI, 0, 0]}
     >
       {meshKeys.map((key, i) => {
-        // Object_11 არის ჩაჩი
+        // Object_11 არის ჩაჩი, სხვადასხვა Object ლეიბლისთვის სცადოთ
         const isCap = key === "Object_11";
-        const isLabel = key === "Object_13"; // ლეიბლისთვის
+        // სცადეთ სხვადასხვა Object-ები ლეიბლისთვის
+        const isLabel = key === "Object_13";
         
         return (
           <mesh
@@ -91,12 +109,21 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
 useGLTF.preload("/models/wine_bottle.glb");
 
 // App კომპონენტი
-export default function App({ capColor = "#8B0000", labelText = "ჩემი ღვინო" }) {
+export default function App({ capColor = "#8B0000", labelText = "შექმენი შენი ეტიკეტი" }) {
   return (
     <Canvas
       shadows
       camera={{ position: [0, 2, 5], fov: 50 }}
-      style={{ width: "100%", height: "80vh", background: "#f0f0f0" }}
+      style={{ 
+        width: "60%", 
+        height: "80vh", 
+        background: "#f0f0f0", 
+        borderRadius: "50px",
+        margin: "0 auto",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center" 
+    }}
     >
       <ambientLight intensity={0.5} />
       <directionalLight
