@@ -3,7 +3,7 @@ import Slider from "../Slider/Slider.jsx";
 import SocialBar from "../SocialBar/SocialBar.jsx";
 import './Home.css';
 import captions from '../../captions.json';
-import { useLanguage } from '../../languageContext';
+import { useLanguage } from '../../languageContext.js';
 
 const Home = () => {
     const { language } = useLanguage();
