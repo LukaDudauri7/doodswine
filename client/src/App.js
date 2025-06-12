@@ -20,7 +20,7 @@ function AppContent() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("login");
   const [user, setUser] = useState(null);
-
+  
   const { language } = useLanguage();
   const content = captions[language].header;
 
@@ -60,13 +60,14 @@ function AppContent() {
     setUser(null);
   };
 
+  console.log(user)
   const renderAuthButtons = () => (
       <div className="auth-buttons">
         <LanguageSelector />
         {user ? (
         <>
           <div className="user-initial">
-            {user?.charAt(0).toUpperCase()}
+            {user.name?.charAt(0).toUpperCase()}
           </div>
           <button className="logout-btn" onClick={logout}>
             {content.logOut}
