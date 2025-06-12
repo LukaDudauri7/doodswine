@@ -13,6 +13,7 @@ import { useLanguage } from './languageContext';
 import "./fonts.css";
 import Loader from "./components/Loader/Loader";
 import OrderPage from "./components/OrderPage/OrderPage";
+import WineCustomizer from "./components/WineCustomizer";
 
 function AppContent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,6 +22,8 @@ function AppContent() {
   const [modalType, setModalType] = useState("login");
   const [user, setUser] = useState(null);
   
+  const [capColor, setCapColor] = useState("#8B0000");
+
   const { language } = useLanguage();
   const content = captions[language].header;
 
@@ -60,7 +63,6 @@ function AppContent() {
     setUser(null);
   };
 
-  console.log(user)
   const renderAuthButtons = () => (
       <div className="auth-buttons">
         <LanguageSelector />
@@ -130,6 +132,20 @@ function AppContent() {
 
         {location.pathname === "/" && (
           <>
+          <div>
+            <h1 style={{ textAlign: "center" }}>ჩემს ღვინოს შეარჩიე დიზაინი 🍷</h1>
+
+            <div style={{ textAlign: "center", marginBottom: 10 }}>
+              <label>ჩაჩის ფერი:</label>
+              <input
+                type="color"
+                value={capColor}
+                onChange={(e) => setCapColor(e.target.value)}
+              />
+            </div>
+
+            <WineCustomizer capColor={capColor} />
+          </div>
             <Wine />
             <OrderPage />
             <About />

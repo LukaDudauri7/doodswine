@@ -1,7 +1,7 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import captions from '../../captions.json';
 import { useLanguage } from '../../languageContext';
-import './about.css';
+import './About.css';
 const About = () => {
     const navigate = useNavigate();
     const location = useLocation();
