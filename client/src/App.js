@@ -22,7 +22,15 @@ function AppContent() {
   const [modalType, setModalType] = useState("login");
   const [user, setUser] = useState(null);
   
-  const [capColor, setCapColor] = useState("#8B0000");
+  const predefinedColors = [
+    { name: "წითელი", value: "#990000" },
+    { name: "ოქროსფერი", value: "#b39800" },
+    { name: "შავი", value: "#000000" },
+    { name: "მწვანე", value: "#004d00" },
+    { name: "თეთრი", value: "#FFFFFF" }
+  ];
+
+  const [capColor, setCapColor] = useState(predefinedColors[0].value);
 
   const { language } = useLanguage();
   const content = captions[language].header;
@@ -132,16 +140,42 @@ function AppContent() {
 
         {location.pathname === "/" && (
           <>
-          <div>
-            <h1 style={{ textAlign: "center" }}>ჩემს ღვინოს შეარჩიე დიზაინი 🍷</h1>
+        <div>
+            <h1 style={{ textAlign: "center" }}>შეარჩიე დიზაინი 🍷</h1>
 
-            <div style={{ textAlign: "center", marginBottom: 10 }}>
-              <label>ჩაჩის ფერი:</label>
-              <input
-                type="color"
-                value={capColor}
-                onChange={(e) => setCapColor(e.target.value)}
-              />
+            <div style={{ textAlign: "center", marginBottom: 20 }}>
+              <p style={{ fontSize: "16px", marginBottom: 10 }}>ჩაჩის ფერი:</p>
+              <div style={{ 
+                display: "flex", 
+                justifyContent: "center", 
+                gap: "10px", 
+                flexWrap: "wrap" 
+              }}>
+                {predefinedColors.map((color) => (
+                  <div
+                    key={color.value}
+                    onClick={() => setCapColor(color.value)}
+                    style={{
+                      width: "50px",
+                      height: "50px",
+                      backgroundColor: color.value,
+                      border: capColor === color.value ? "3px solid #333" : "2px solid #ccc",
+                      borderRadius: "50%",
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      transition: "all 0.2s ease",
+                      boxShadow: capColor === color.value ? "0 0 10px rgba(0,0,0,0.3)" : "none"
+                    }}
+                    title={color.name}
+                  >
+                    {capColor === color.value && (
+                      <span style={{ color: "white", fontSize: "20px" }}>✓</span>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
 
             <WineCustomizer capColor={capColor} />
