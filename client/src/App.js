@@ -29,7 +29,7 @@ function AppContent() {
     { name: "მწვანე", value: "#004d00" },
     { name: "თეთრი", value: "#FFFFFF" }
   ];
-  const [labelText, setLabelText] = useState("შექმენი შენი ეტიკეტი");
+  const [labelText, setLabelText] = useState("DOOD'S WINE");
   const [capColor, setCapColor] = useState(predefinedColors[0].value);
 
   const { language } = useLanguage();
@@ -141,7 +141,7 @@ function AppContent() {
         {location.pathname === "/" && (
           <>
   <div>
-      <h1 style={{ textAlign: "center" }}>ჩემს ღვინოს შეარჩიე დიზაინი 🍷</h1>
+      <h1 style={{ textAlign: "center" }}>შეარჩიე შენი დიზაინი 🍷</h1>
 
       <div style={{ textAlign: "center", marginBottom: 20 }}>
         <div style={{ marginBottom: 15 }}>
@@ -151,7 +151,7 @@ function AppContent() {
           <textarea
             value={labelText}
             onChange={(e) => setLabelText(e.target.value)}
-            placeholder="ჩაწერეთ ტექსტი... (Enter - ახალი ხაზი)"
+            placeholder={"ჩაწერეთ ტექსტი...\n (Enter - ახალი ხაზი)"}
             rows="3"
             style={{
               padding: "8px 12px",
