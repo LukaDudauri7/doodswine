@@ -11,8 +11,7 @@
   -moz-appearance: none;
   cursor: pointer;
   outline: none;
-  transition: all 0.3s ease-in-out;
-  
+  /* transition: all 0.3s ease-in-out; */
   /* Remove the arrow */
   background-image: none;
 }

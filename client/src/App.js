@@ -146,23 +146,13 @@ function AppContent() {
       <div style={{ textAlign: "center", marginBottom: 20 }}>
         <div style={{ marginBottom: 15 }}>
           <label style={{ display: "block", marginBottom: 5, fontSize: "16px" }}>
-            ლეიბლის ტექსტი:
+            ეტიკეტის ტექსტი:
           </label>
           <textarea
             value={labelText}
             onChange={(e) => setLabelText(e.target.value)}
             placeholder={"ჩაწერეთ ტექსტი...\n (Enter - ახალი ხაზი)"}
             rows="3"
-            style={{
-              padding: "8px 12px",
-              fontSize: "16px",
-              borderRadius: "5px",
-              border: "2px solid #ccc",
-              width: "200px",
-              resize: "vertical",
-              fontFamily: "inherit",
-              textAlign: "center",
-            }}
           />
         </div>
         
