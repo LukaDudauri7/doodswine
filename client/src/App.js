@@ -70,14 +70,17 @@ function AppContent() {
     localStorage.removeItem("user");
     setUser(null);
   };
-
   const renderAuthButtons = () => (
       <div className="auth-buttons">
         <LanguageSelector />
         {user ? (
-        <>
+          
+          <>
           <div className="user-initial">
-            {user.name?.charAt(0).toUpperCase()}
+            {/* {user?.name?.charAt(0).toUpperCase()} */}
+            {user?.name
+              ? user.name.charAt(0).toUpperCase()
+              : "?"}
           </div>
           <button className="logout-btn" onClick={logout}>
             {content.logOut}
