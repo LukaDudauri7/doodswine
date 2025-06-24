@@ -179,16 +179,6 @@ main {
   border-radius: 5px;
   cursor: pointer;
 }
-textarea {
-  padding: 8px 12px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 2px solid #ccc;
-  width: 200px;
-  resize: vertical;
-  font-family: inherit;
-  text-align: center;
-}
 
 /* ჰედერი და მობილური */
 @media (max-width: 768px) {

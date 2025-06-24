@@ -13,7 +13,7 @@ import { useLanguage } from './languageContext';
 import "./fonts.css";
 import Loader from "./components/Loader/Loader";
 import OrderPage from "./components/OrderPage/OrderPage";
-import WineCustomizer from "./components/WineCustomizer";
+import BottleDesign from "./components/BottleDesign/BottleDesign";
 
 function AppContent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,16 +21,6 @@ function AppContent() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("login");
   const [user, setUser] = useState(null);
-  
-  const predefinedColors = [
-    { name: "წითელი", value: "#990000" },
-    { name: "ოქროსფერი", value: "#b39800" },
-    { name: "შავი", value: "#000000" },
-    { name: "მწვანე", value: "#004d00" },
-    { name: "თეთრი", value: "#FFFFFF" }
-  ];
-  const [labelText, setLabelText] = useState("DOOD'S WINE");
-  const [capColor, setCapColor] = useState(predefinedColors[0].value);
 
   const { language } = useLanguage();
   const content = captions[language].header;
@@ -74,7 +64,6 @@ function AppContent() {
       <div className="auth-buttons">
         <LanguageSelector />
         {user ? (
-          
           <>
           <div className="user-initial">
             {/* {user?.name?.charAt(0).toUpperCase()} */}
@@ -143,58 +132,7 @@ function AppContent() {
 
         {location.pathname === "/" && (
           <>
-  <div>
-      <h1 style={{ textAlign: "center" }}>შეარჩიე შენი დიზაინი 🍷</h1>
-
-      <div style={{ textAlign: "center", marginBottom: 20 }}>
-        <div style={{ marginBottom: 15 }}>
-          <label style={{ display: "block", marginBottom: 5, fontSize: "16px" }}>
-            ეტიკეტის ტექსტი:
-          </label>
-          <textarea
-            value={labelText}
-            onChange={(e) => setLabelText(e.target.value)}
-            placeholder={"ჩაწერეთ ტექსტი...\n (Enter - ახალი ხაზი)"}
-            rows="3"
-          />
-        </div>
-        
-        <p style={{ fontSize: "16px", marginBottom: 10 }}>ჩაჩის ფერი:</p>
-        <div style={{ 
-          display: "flex", 
-          justifyContent: "center", 
-          gap: "10px", 
-          flexWrap: "wrap" 
-        }}>
-          {predefinedColors.map((color) => (
-            <div
-              key={color.value}
-              onClick={() => setCapColor(color.value)}
-              style={{
-                width: "50px",
-                height: "50px",
-                backgroundColor: color.value,
-                border: capColor === color.value ? "2px solid #333" : "2px solid #ccc",
-                borderRadius: "50%",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                transition: "all 0.2s ease",
-                boxShadow: capColor === color.value ? "0 0 10px rgba(0,0,0,0.3)" : "none"
-              }}
-              title={color.name}
-            >
-              {capColor === color.value && (
-                <span style={{ color: "white", fontSize: "20px" }}>✓</span>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <WineCustomizer capColor={capColor} labelText={labelText} />
-    </div>
+            <BottleDesign />
             <Wine />
             <OrderPage />
             <About />
