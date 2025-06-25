@@ -9,7 +9,7 @@ import AuthModal from "./components/AuthModal/AuthModal";
 import Home from "./components/Home/Home";
 import Wine from "./components/Wine/Wine";
 import OrderPage from "./components/OrderPage/OrderPage";
-import About from "./components/About/About";
+import About from "./components/About11/About";
 
 import { useLanguage } from './languageContext';
 import captions from './captions.json';
