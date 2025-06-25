@@ -97,8 +97,8 @@
 }
 
 @media (max-width: 768px) {
-    .auth-modal {
-        width: 75%;
-        padding: 20px;
-    }
+  .auth-modal {
+      width: 75%;
+      padding: 20px;
+  }
 }

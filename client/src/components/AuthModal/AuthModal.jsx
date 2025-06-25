@@ -31,7 +31,6 @@ function AuthModal({ type, onClose, setUser }) {
       setUser(res.data.user.name);
       // localStorage.setItem("token", res.data.token);
       console.log("User:", res.data.user.name);
-
       onClose();
     } catch (error) {
       alert(error.response?.data?.message || "Something went wrong.");

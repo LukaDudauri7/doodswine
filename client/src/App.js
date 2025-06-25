@@ -44,7 +44,6 @@ function AppContent() {
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
     }
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -71,7 +70,7 @@ function AppContent() {
               ? user.name.charAt(0).toUpperCase()
               : "?"}
           </div>
-          <button className="logout-btn" onClick={logout}>
+          <button onClick={logout}>
             {content.logOut}
           </button>
         </>
@@ -146,22 +145,16 @@ function AppContent() {
 }
 
 function App() {
-  
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false); // როდესაც ყველაფერი ჩაიტვირთება, ლოადერი გაქრება
     }, 2900);
-
     return () => clearTimeout(timer);
   }, []);
   return (
     <Router>
-      {loading ? (
-        <Loader />
-      ) : (
-        <AppContent />
-      )}
+      {loading ? ( <Loader /> ) : ( <AppContent /> )}
     </Router>
   );
 }

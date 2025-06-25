@@ -2,8 +2,6 @@
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { db } from "../../firebase"; // firebase init
-import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { useState } from "react";
 import "./OrderPage.css";
 
@@ -23,22 +21,22 @@ const OrderPage = () => {
   }, [controls, inView]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await addDoc(collection(db, "orders"), {
-        name,
-        phone,
-        wine,
-        created: Timestamp.now(),
-      });
-      alert("შეკვეთა მიღებულია! 🍷");
-      setName("");
-      setPhone("");
-      setAddress("");
-      setWine(wines[0]);
-    } catch (err) {
-      alert("დაფიქსირდა შეცდომა: " + err.message);
-    }
+    // e.preventDefault();
+    // try {
+    //   await addDoc(collection(db, "orders"), {
+    //     name,
+    //     phone,
+    //     wine,
+    //     created: Timestamp.now(),
+    //   });
+    //   alert("შეკვეთა მიღებულია! 🍷");
+    //   setName("");
+    //   setPhone("");
+    //   setAddress("");
+    //   setWine(wines[0]);
+    // } catch (err) {
+    //   alert("დაფიქსირდა შეცდომა: " + err.message);
+    // }
   };
 
   return (
