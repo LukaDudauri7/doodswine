@@ -6,8 +6,8 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import AuthModal from "./components/AuthModal/AuthModal";
 
-import Home from "./components/Home11/Home";
-import Wine from "./components/Wine11/Wine";
+import Home from "./components/Home/Home";
+import Wine from "./components/Wine/Wine";
 import OrderPage from "./components/OrderPage/OrderPage";
 import About from "./components/About/About";
 
