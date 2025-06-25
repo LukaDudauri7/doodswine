@@ -28,6 +28,7 @@ function AuthModal({ type, onClose, setUser }) {
         alert("Logged in!");
       }
       localStorage.setItem("user", JSON.stringify(res.data.user.name));
+
       setUser(res.data.user.name);
       // localStorage.setItem("token", res.data.token);
       console.log("User:", res.data.user.name);

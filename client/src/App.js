@@ -65,14 +65,9 @@ function AppContent() {
         {user ? (
           <>
           <div className="user-initial">
-            {/* {user?.name?.charAt(0).toUpperCase()} */}
-            {user?.name
-              ? user.name.charAt(0).toUpperCase()
-              : "?"}
+            {user?.name ? user.name.charAt(0).toUpperCase() : "?"}
           </div>
-          <button onClick={logout}>
-            {content.logOut}
-          </button>
+          <button onClick={logout}> {content.logOut} </button>
         </>
         ) : (
           <>
@@ -137,7 +132,6 @@ function AppContent() {
             <About />
           </>
         )}
-
       </main>
       <Footer />
     </div>
