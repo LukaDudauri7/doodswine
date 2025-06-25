@@ -5,11 +5,11 @@ import Loader from "./components/Loader/Loader";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import AuthModal from "./components/AuthModal/AuthModal";
-
 import Home from "./components/Home/Home";
 import Wine from "./components/Wine/Wine";
 import OrderPage from "./components/OrderPage/OrderPage";
 import About from "./components/About/About";
+import BottleDesign from "./components/BottleDesign/BottleDesign";
 
 import { useLanguage } from './languageContext';
 import captions from './captions.json';
@@ -23,7 +23,6 @@ function AppContent() {
 
   const { language } = useLanguage();
   const content = captions[language].header;
-
   const location = useLocation();
 
   useEffect(() => {
@@ -35,9 +34,7 @@ function AppContent() {
     setModalType(type);
     setIsModalOpen(true);
   };
-
   const closeModal = () => setIsModalOpen(false);
-
   const logout = () => {
     localStorage.removeItem("user");
     setUser(null);
@@ -46,11 +43,7 @@ function AppContent() {
   return (
     <div className="App">
       <NavBar user={user} logout={logout} openModal={openModal} captions={content} />
-
-      {isModalOpen && (
-        <AuthModal type={modalType} onClose={closeModal} setUser={setUser} />
-      )}
-
+      {isModalOpen && ( <AuthModal type={modalType} onClose={closeModal} setUser={setUser} />)}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -58,8 +51,15 @@ function AppContent() {
           <Route path="/order" element={<OrderPage />} />
           <Route path="/about" element={<About />} />
         </Routes>
+        {location.pathname === "/" && (
+          <>
+            <BottleDesign />
+            <Wine />
+            <OrderPage />
+            <About />
+          </>
+        )}
       </main>
-
       <Footer />
     </div>
   );

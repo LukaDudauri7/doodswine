@@ -161,6 +161,12 @@
 
 /* ჰედერი და მობილური */
 @media (max-width: 768px) {
+  .auth-buttons{
+    top: auto;
+  }
+  .auth-buttons button:hover {
+    transform: translateY(0);
+  }
   .menu {
     display: none;
     flex-direction: column;

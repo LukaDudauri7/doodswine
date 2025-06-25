@@ -34,7 +34,7 @@ function NavBar({ user, logout, openModal, captions }) {
       <LanguageSelector />
       {user ? (
         <>
-          <div className="user-initial">{user?.name?.charAt(0).toUpperCase() || "?"}</div>
+          <div className="user-initial">{user.charAt(0).toUpperCase() || "?"}</div>
           <button onClick={logout}>{captions.logOut}</button>
         </>
       ) : (
