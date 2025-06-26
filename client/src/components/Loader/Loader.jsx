@@ -51,7 +51,7 @@ const WineGlassLoader = () => {
   return (
     <div className="loader-container">
       <h1 className="brand-title">
-        DOODS WINE
+        DOOD'S WINE
       </h1>
 
       <div className="wine-glass-wrapper">
