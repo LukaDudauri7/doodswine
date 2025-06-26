@@ -9,17 +9,22 @@
   background-image: url('../../../public/images/bg.jpg');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   border-radius: 50px;
   overflow: hidden;
   pointer-events: auto;
 }
 
-/* 📱 მობილურისთვის */
 @media (max-width: 768px) {
   .canvas-container {
     width: 90% !important;
     height: 65vh !important;
     border-radius: 20px;
-    /* background-position აღარ გვჭირდება, center უკვე ყველა ზომაზე მუშაობს */
+  }
+}
+
+@media (max-width: 480px) {
+  .canvas-container {
+    background-position: 35% 30%;
   }
 }
