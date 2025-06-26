@@ -2,7 +2,13 @@ import React from 'react';
 import { useState } from 'react';
 import './BottleDesign.css'; // Assuming you have a CSS file for styling
 import WineCustomizer from '../WineCustomizer';
+import captions from '../../captions.json';
+import { useLanguage } from '../../languageContext.js';
+
 const BottleDesign = () => {
+    const { language } = useLanguage();
+    const content = captions[language].bottleDesign;
+
     const predefinedColors = [
         { name: "წითელი", value: "#990000" },
         { name: "ოქროსფერი", value: "#b39800" },
@@ -13,39 +19,37 @@ const BottleDesign = () => {
     const [labelText, setLabelText] = useState("DOOD'S WINE");
     const [capColor, setCapColor] = useState(predefinedColors[0].value);
     return (
-    <div>
-        <h1>შეარჩიე შენი დიზაინი 🍷</h1>
-
-        <div className="container">
-            <div className="label-group">
-            <label>ეტიკეტის ტექსტი:</label>
-            <textarea
-                value={labelText}
-                onChange={(e) => setLabelText(e.target.value)}
-                placeholder={"ჩაწერეთ ტექსტი...\n (Enter - ახალი ხაზი)"}
-                rows="3"
-            />
-            </div>
-            
-            <p>ჩაჩის ფერი:</p>
-            <div className="color-options">
-                {predefinedColors.map((color) => (
-                <div
-                    key={color.value}
-                    onClick={() => setCapColor(color.value)}
-                    className={`color-circle ${capColor === color.value ? 'selected' : ''}`}
-                    style={{ backgroundColor: color.value }}
-                    title={color.name}
-                >
-                    {capColor === color.value && (
-                    <span className="color-checkmark">✓</span>
-                    )}
+        <div className='bottle-design-container'>
+            <h1>{content.header}</h1>
+            <div className="container">
+                <div className="label-group">
+                <label>{content.label}</label>
+                <textarea
+                    value={labelText}
+                    onChange={(e) => setLabelText(e.target.value)}
+                    placeholder={"ჩაწერეთ ტექსტი...\n (Enter - ახალი ხაზი)"}
+                    rows="3"
+                />
                 </div>
-                ))}
+                
+                <p>{content.cap}</p>
+                <div className="color-options">
+                    {predefinedColors.map((color) => (
+                    <div
+                        key={color.value}
+                        onClick={() => setCapColor(color.value)}
+                        className={`color-circle ${capColor === color.value ? 'selected' : ''}`}
+                        style={{ backgroundColor: color.value }}
+                        title={color.name}
+                    >
+                        {capColor === color.value && (
+                        <span className="color-checkmark">✓</span>
+                        )}
+                    </div>
+                    ))}
+                </div>
             </div>
-        </div>
-
-        <WineCustomizer capColor={capColor} labelText={labelText} />
+            <WineCustomizer capColor={capColor} labelText={labelText} />
         </div>
     );
 };

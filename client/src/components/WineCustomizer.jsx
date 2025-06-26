@@ -39,7 +39,6 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
 
     lines.forEach((line, index) => {
       const y = startY + index * lineHeight;
-      // ტექსტის კონტური უკეთესი ხედვისთვის
       ctx.strokeStyle = "#cccccc";
       ctx.lineWidth = 2;
       ctx.strokeText(line, canvas.width / 2, y);
@@ -61,14 +60,12 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
   // ჩაჩის ფერის განახლება
   useEffect(() => {
     if (capRef.current) {
-      // ახალი მასალის შექმნა ფერით
       capRef.current.material = capRef.current.material.clone();
       capRef.current.material.color.set(capColor);
       capRef.current.material.needsUpdate = true;
     }
   }, [capColor]);
 
-  // ყველა mesh-ს ვაგენერირებთ
   const meshKeys = [
     "Object_5",
     "Object_6", 
@@ -86,9 +83,7 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
       rotation={[Math.PI, 0, 0]}
     >
       {meshKeys.map((key, i) => {
-        // Object_11 არის ჩაჩი, სხვადასხვა Object ლეიბლისთვის სცადოთ
         const isCap = key === "Object_11";
-        // სცადეთ სხვადასხვა Object-ები ლეიბლისთვის
         const isLabel = key === "Object_13";
         
         return (
@@ -122,7 +117,8 @@ export default function App({ capColor = "#8B0000", labelText = "შექმე
         margin: "0 auto",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center" 
+        justifyContent: "center",
+        cursor: "grab",
     }}
     >
       <ambientLight intensity={0.5} />

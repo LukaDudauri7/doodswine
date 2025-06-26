@@ -33,8 +33,15 @@
         "aladasturiDesc": "ნახევრად ტკბილი წითელი ღვინო ქართლიდან.",
         "dirbula": "დირბულა",
         "dirbulaDesc": "ნახევრად ტკბილი წითელი ღვინო, პოპულარული არჩევანი."
+    },
+    "bottleDesign": {
+      "label": "ეტიკეტის ტექსტი",
+      "cap": "ჩაჩის ფერი",
+      "header": "შეარჩიე შენი დიზაინი 🍷"
     }
   },
+
+
   "en": {
     "about": {
       "title": "About Us",
@@ -69,6 +76,11 @@
         "aladasturiDesc": "semi-sweet red wine from Kartli.",
         "dirbula": "Dirbula",
         "dirbulaDesc": "Semi-sweet red wine, a popular choice."
+    },
+    "bottleDesign": {
+      "label": "Label Text",
+      "cap": "Cap Color",
+      "header": "Choose Your Design 🍷"
     }
   }
 }
