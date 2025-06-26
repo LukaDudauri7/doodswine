@@ -42,11 +42,11 @@
 }
 
 .swiper-button-next {
-  right: 10px;
+  right: 0px;
 }
 
 .swiper-button-prev {
-  left: 10px;
+  left: 0px;
 }
 
 span.swiper-pagination-bullet.swiper-pagination-bullet-active {

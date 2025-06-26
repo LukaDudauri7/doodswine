@@ -19,7 +19,7 @@ const BottleDesign = () => {
     const [labelText, setLabelText] = useState("DOOD'S WINE");
     const [capColor, setCapColor] = useState(predefinedColors[0].value);
     return (
-        <div className='bottle-design-container'>
+        <div>
             <h1>{content.header}</h1>
             <div className="container">
                 <div className="label-group">
