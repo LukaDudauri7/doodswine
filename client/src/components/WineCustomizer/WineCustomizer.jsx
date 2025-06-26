@@ -3,6 +3,7 @@ import { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
+import './WineCustomizer.css';
 
 // კომპონენტი ბოთლისთვის
 export function WineBottle({ labelText = "ჩემი ღვინო", capColor = "#8B0000" }) {
@@ -109,17 +110,7 @@ export default function App({ capColor = "#8B0000", labelText = "შექმე
     <Canvas
       shadows
       camera={{ position: [0, 2, 5], fov: 50 }}
-      style={{ 
-        width: "60%", 
-        height: "80vh", 
-        background: "#f0f0f0", 
-        borderRadius: "50px",
-        margin: "0 auto",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        cursor: "grab",
-    }}
+      className="canvas-container"
     >
       <ambientLight intensity={0.5} />
       <directionalLight

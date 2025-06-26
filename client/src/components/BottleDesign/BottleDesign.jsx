@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import './BottleDesign.css'; // Assuming you have a CSS file for styling
-import WineCustomizer from '../WineCustomizer';
+import WineCustomizer from '../WineCustomizer/WineCustomizer.jsx';
 import captions from '../../captions.json';
 import { useLanguage } from '../../languageContext.js';
 

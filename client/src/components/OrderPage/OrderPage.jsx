@@ -21,6 +21,7 @@ const OrderPage = () => {
   }, [controls, inView]);
 
   const handleSubmit = async (e) => {
+    alert("ცოტა გვადროვე, რავა ყველაფერი ერთიანად მოგინდა!");
     // e.preventDefault();
     // try {
     //   await addDoc(collection(db, "orders"), {
