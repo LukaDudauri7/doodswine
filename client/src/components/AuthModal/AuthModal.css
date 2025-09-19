@@ -34,6 +34,9 @@
   cursor: pointer;
   color: #7b3e19;
 }
+.auth-modal .close-button:hover {
+  scale: 1.2;
+}
 
 /* Title */
 .auth-modal h2 {

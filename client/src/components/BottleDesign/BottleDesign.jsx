@@ -45,10 +45,12 @@ const BottleDesign = () => {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1 }}
+        className='bottle-design-section'
     >
-        <div className="bottle-design-container">
         <motion.h1 variants={childVariants}>{content.header}</motion.h1>
+        <div className="bottle-design-container">
+
 
         <motion.div className="container" variants={childVariants}>
             <motion.div className="label-group" variants={childVariants}>
@@ -67,14 +69,14 @@ const BottleDesign = () => {
             <motion.div className="color-options" variants={childVariants}>
             {predefinedColors.map((color, index) => (
                 <motion.div
-                key={color.value}
-                onClick={() => setCapColor(color.value)}
-                className={`color-circle ${capColor === color.value ? 'selected' : ''}`}
-                style={{ backgroundColor: color.value }}
-                title={color.name}
-                variants={childVariants}
-                whileHover={{ scale: 1.15 }}
-                transition={{ type: "spring", stiffness: 400 }}
+                    key={color.value}
+                    onClick={() => setCapColor(color.value)}
+                    className={`color-circle ${capColor === color.value ? 'selected' : ''}`}
+                    style={{ backgroundColor: color.value }}
+                    title={color.name}
+                    variants={childVariants}
+                    whileHover={{ scale: 1.15 }}
+                    transition={{ type: "spring", stiffness: 400 }}
                 >
                 {capColor === color.value && (
                     <span className="color-checkmark">✓</span>
@@ -83,8 +85,8 @@ const BottleDesign = () => {
             ))}
             </motion.div>
         </motion.div>
-
-        <motion.div variants={childVariants}>
+        
+        <motion.div variants={childVariants} className='wine-customizer-wrapper'>
             <WineCustomizer capColor={capColor} labelText={labelText} />
         </motion.div>
         </div>
