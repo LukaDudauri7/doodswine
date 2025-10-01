@@ -6,8 +6,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import AuthModal from "./components/AuthModal/AuthModal";
 import Home from "./components/Home/Home";
-import Wine from "./components/Wine/Wine";
-import OrderPage from "./components/OrderPage/OrderPage";
+import Wine from "./components/Wine/Wine"
 import About from "./components/About/About";
 import BottleDesign from "./components/BottleDesign/BottleDesign";
 
@@ -48,14 +47,12 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/wine" element={<Wine />} />
-          <Route path="/order" element={<OrderPage />} />
           <Route path="/about" element={<About />} />
         </Routes>
         {location.pathname === "/" && (
           <>
             <BottleDesign />
             <Wine />
-            <OrderPage />
             <About />
           </>
         )}

@@ -90,8 +90,8 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
         return (
           <mesh
             key={key}
-            geometry={nodes[key].geometry}
-            material={nodes[key].material}
+            geometry={nodes[key]?.geometry}
+            material={nodes[key]?.material}
             ref={isCap ? capRef : (isLabel ? labelRef : null)}
             castShadow
             receiveShadow
