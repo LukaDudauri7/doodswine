@@ -11,7 +11,7 @@ const LanguageSelector = () => {
   return (
     <select value={language} onChange={handleChange} className="language-selector">
       <option value="en">EN</option>
-      <option value="ka">KA</option>
+      <option value="ge">GE</option>
     </select>
   );
 };

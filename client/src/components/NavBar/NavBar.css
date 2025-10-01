@@ -40,7 +40,7 @@
   align-items: center;
   position: absolute;
   right: 25px;
-  top: 18px;
+  top: 12px;
 }
 
 .auth-buttons button {
@@ -51,7 +51,7 @@
   border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: 'Georgia', serif;
+  font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #721817, #a8003a);
   color: #fdf5f1;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);

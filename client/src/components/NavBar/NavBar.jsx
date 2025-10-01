@@ -24,7 +24,6 @@ function NavBar({ user, logout, openModal, captions }) {
     <>
       <Link to="/" onClick={() => setIsMenuOpen(false)}>{captions.headerHome}</Link>
       <Link to="/wine" onClick={() => setIsMenuOpen(false)}>{captions.headerProducts}</Link>
-      <Link to="/order" onClick={() => setIsMenuOpen(false)}>Order</Link>
       <Link to="/about" onClick={() => setIsMenuOpen(false)}>{captions.headerAbout}</Link>
     </>
   );
