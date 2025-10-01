@@ -26,5 +26,6 @@
 @media (max-width: 480px) {
   .canvas-container {
     background-position: 35% 30%;
+    top: 20px;
   }
 }
