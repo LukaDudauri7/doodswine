@@ -11,28 +11,23 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
   const labelRef = useRef();
   const capRef = useRef();
 
-  // დინამიური ტექსტურა ლეიბლისთვის
   useEffect(() => {
     const canvas = document.createElement("canvas");
-    canvas.width = 1024; // უკეთესი ხარისხისთვის
+    canvas.width = 1024;
     canvas.height = 512;
     const ctx = canvas.getContext("2d");
 
-    // მაღალი ხარისხის რენდერინგი
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = 'high';
 
-    // თეთრი ფონი
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    // შავი ტექსტი
     ctx.fillStyle = "#000000";
     ctx.font = "bold 60px Georgia, serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
 
-    // ტექსტს ვყოფთ ხაზების მიხედვით
     const lines = labelText.split('\n');
     const lineHeight = 80;
     const totalHeight = lines.length * lineHeight;
@@ -104,7 +99,6 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
 
 useGLTF.preload("/models/wine_bottle.glb");
 
-// App კომპონენტი
 export default function App({ capColor = "#8B0000", labelText = "შექმენი შენი ეტიკეტი" }) {
   return (
     <Canvas
