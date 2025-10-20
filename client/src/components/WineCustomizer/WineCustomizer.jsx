@@ -102,7 +102,9 @@ useGLTF.preload("/models/wine_bottle.glb");
 export default function App({ capColor = "#8B0000", labelText = "შექმენი შენი ეტიკეტი" }) {
   return (
     <Canvas
-      shadows
+      frameloop="demand"
+      shadows={false}
+      dpr={[1, 2]}
       camera={{ position: [0, 2, 5], fov: 50 }}
       className="canvas-container"
     >

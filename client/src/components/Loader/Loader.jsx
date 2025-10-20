@@ -6,9 +6,9 @@ const WineGlassLoader = () => {
   const [loadingText, setLoadingText] = useState('ღვინის მომზადება...');
 
   const messages = [
-    'ღვინის მომზადება...',
-    'ხარისხის შემოწმება...',
-    'თითქმის მზადაა...'
+    'Crafting the wineა...',
+    'Quality in progress...',
+    'Almost ready...'
   ];
 
   // კონფიგურაციის ცვლადები:
@@ -25,14 +25,12 @@ const WineGlassLoader = () => {
       setProgress(prev => {
         if (prev >= 100) {
           setLoadingText('მზადაა! 🍷');
-          clearInterval(interval); // ახლა შეგვიძლია clearInterval აქ გამოვიყენოთ!
+          clearInterval(interval);
           return 100;
         }
         
-        // პროგრესი იზრდება ფიქსირებული, გამოთვლილი ნაბიჯით
         const newProgress = prev + progressPerStep; 
         
-        // ტექსტის ინდექსის გამოთვლა
         const segmentSize = 100 / messages.length;
         const messageIndex = Math.floor(newProgress / segmentSize); 
         
@@ -42,11 +40,10 @@ const WineGlassLoader = () => {
         
         return Math.min(newProgress, 100);
       });
-    }, intervalTime); // ვიყენებთ intervalTime ცვლადს
+    }, intervalTime);
 
-    // დასუფთავების ფუნქცია
     return () => clearInterval(interval);
-  }, [intervalTime, totalDurationSeconds, messages.length]); // დამოკიდებულებები
+  }, [intervalTime, totalDurationSeconds, messages.length]);
 
   return (
     <div className="loader-container">

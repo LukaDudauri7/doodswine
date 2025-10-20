@@ -167,6 +167,9 @@
   .auth-buttons button:hover {
     transform: translateY(0);
   }
+  .auth-buttons button {
+    font-size: 12px;
+  }
   .menu {
     display: none;
     flex-direction: column;
