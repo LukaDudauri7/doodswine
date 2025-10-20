@@ -5,7 +5,6 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import './WineCustomizer.css';
 
-// კომპონენტი ბოთლისთვის
 export function WineBottle({ labelText = "ჩემი ღვინო", capColor = "#8B0000" }) {
   const { nodes } = useGLTF("/models/wine_bottle.glb");
   const labelRef = useRef();
