@@ -1,6 +1,6 @@
 .language-selector {
   padding: 6px 14px;
-  font-size: 0.9rem;
+  font-size: 12px;
   font-family: 'Inter', sans-serif;
   color: #333;
   border: 1px solid #dcdcdc;
@@ -11,8 +11,6 @@
   -moz-appearance: none;
   cursor: pointer;
   outline: none;
-  /* transition: all 0.3s ease-in-out; */
-  /* Remove the arrow */
   background-image: none;
 }
 

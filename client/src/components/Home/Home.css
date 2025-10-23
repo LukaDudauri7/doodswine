@@ -23,3 +23,8 @@
     font-family: 'Inter', sans-serif;
     margin-bottom: 4rem;
 }
+@media (max-width: 768px) {
+    .home-title {
+        font-size: 40px;
+    }
+}
