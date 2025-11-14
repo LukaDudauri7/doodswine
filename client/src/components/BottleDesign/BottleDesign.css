@@ -100,6 +100,7 @@ label, p {
 
 .upload-area {
   width: 90%;
+  height: 25px;
   padding: 14px;
   border: 2px dashed #c5a200;
   border-radius: 12px;
@@ -119,7 +120,6 @@ label, p {
 
 .upload-area input {
   opacity: 0;
-  position: absolute;
   pointer-events: none;
 }
 
