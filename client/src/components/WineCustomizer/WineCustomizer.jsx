@@ -5,43 +5,52 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import './WineCustomizer.css';
 
-export function WineBottle({ labelText = "ჩემი ღვინო", capColor = "#8B0000" }) {
+export function WineBottle({ labelText = "ჩემი ღვინო", capColor = "#8B0000", labelImage = null }) {
   const { nodes } = useGLTF("/models/wine_bottle.glb");
   const labelRef = useRef();
   const capRef = useRef();
 
-  useEffect(() => {
+ useEffect(() => {
+    // თუ სურათი ატვირთულია — ვტვირთავთ პირდაპირ ეტიკეტზე 
+    if (labelImage) {
+      const texture = new THREE.TextureLoader().load(labelImage, (tex) => {
+        tex.minFilter = THREE.LinearFilter;
+        tex.magFilter = THREE.LinearFilter;
+        tex.needsUpdate = true;
+      });
+
+      if (labelRef.current) {
+        labelRef.current.material.map = texture;
+        labelRef.current.material.needsUpdate = true;
+      }
+      return;
+    }
+
+    // თუ სურათი არ არის — ვტვირთავთ ტექსტს (ძველი ლოგიკა)
     const canvas = document.createElement("canvas");
     canvas.width = 1024;
     canvas.height = 512;
     const ctx = canvas.getContext("2d");
 
-    ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = 'high';
-
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
+
     ctx.fillStyle = "#000000";
     ctx.font = "bold 60px Georgia, serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
 
-    const lines = labelText.split('\n');
+    const lines = labelText.split("\n");
     const lineHeight = 80;
     const totalHeight = lines.length * lineHeight;
     const startY = (canvas.height - totalHeight) / 2 + lineHeight / 2;
 
     lines.forEach((line, index) => {
       const y = startY + index * lineHeight;
-      ctx.strokeStyle = "#cccccc";
-      ctx.lineWidth = 2;
-      ctx.strokeText(line, canvas.width / 2, y);
       ctx.fillText(line, canvas.width / 2, y);
     });
 
     const texture = new THREE.CanvasTexture(canvas);
-    texture.generateMipmaps = false;
     texture.minFilter = THREE.LinearFilter;
     texture.magFilter = THREE.LinearFilter;
     texture.needsUpdate = true;
@@ -50,7 +59,7 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
       labelRef.current.material.map = texture;
       labelRef.current.material.needsUpdate = true;
     }
-  }, [labelText]);
+  }, [labelText, labelImage]);
 
   // ჩაჩის ფერის განახლება
   useEffect(() => {
@@ -98,10 +107,11 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
 
 useGLTF.preload("/models/wine_bottle.glb");
 
-export default function App({ capColor = "#8B0000", labelText = "შექმენი შენი ეტიკეტი" }) {
+export default function App({ capColor = "#8B0000", labelText = "შექმენი შენი ეტიკეტი", labelImage = null }) {
+
   return (
     <Canvas
-      frameloop="demand"
+      frameloop="always"
       shadows={false}
       dpr={[1, 2]}
       camera={{ position: [0, 2, 5], fov: 50 }}
@@ -116,7 +126,7 @@ export default function App({ capColor = "#8B0000", labelText = "შექმე
         shadow-mapSize-height={1024}
       />
       <Suspense fallback={null}>
-        <WineBottle labelText={labelText} capColor={capColor} />
+        <WineBottle labelText={labelText} capColor={capColor} labelImage={labelImage} />
       </Suspense>
       <OrbitControls enableZoom={false}/>
     </Canvas>
