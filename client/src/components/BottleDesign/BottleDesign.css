@@ -71,6 +71,15 @@ label, p {
   margin-top: 130px;
 }
 
+.upload-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 @media (max-width: 768px) {
   .bottle-design-container{
     margin-top: -20px;

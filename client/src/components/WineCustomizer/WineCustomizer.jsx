@@ -10,56 +10,61 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
   const labelRef = useRef();
   const capRef = useRef();
 
- useEffect(() => {
-    // თუ სურათი ატვირთულია — ვტვირთავთ პირდაპირ ეტიკეტზე 
-    if (labelImage) {
-      const texture = new THREE.TextureLoader().load(labelImage, (tex) => {
-        tex.minFilter = THREE.LinearFilter;
-        tex.magFilter = THREE.LinearFilter;
-        tex.needsUpdate = true;
-      });
-
-      if (labelRef.current) {
-        labelRef.current.material.map = texture;
-        labelRef.current.material.needsUpdate = true;
-      }
-      return;
-    }
-
-    // თუ სურათი არ არის — ვტვირთავთ ტექსტს (ძველი ლოგიკა)
+  useEffect(() => {
     const canvas = document.createElement("canvas");
     canvas.width = 1024;
     canvas.height = 512;
     const ctx = canvas.getContext("2d");
 
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = "#000000";
-    ctx.font = "bold 60px Georgia, serif";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
+    function drawFinalTexture() {
+      if (labelText) {
+        ctx.fillStyle = "#000000";
+        ctx.font = "bold 60px Georgia, serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
 
-    const lines = labelText.split("\n");
-    const lineHeight = 80;
-    const totalHeight = lines.length * lineHeight;
-    const startY = (canvas.height - totalHeight) / 2 + lineHeight / 2;
+        const lines = labelText.split("\n");
+        const lineHeight = 80;
 
-    lines.forEach((line, index) => {
-      const y = startY + index * lineHeight;
-      ctx.fillText(line, canvas.width / 2, y);
-    });
+        const textStartY = labelImage ? 450 : 250; 
 
-    const texture = new THREE.CanvasTexture(canvas);
-    texture.minFilter = THREE.LinearFilter;
-    texture.magFilter = THREE.LinearFilter;
-    texture.needsUpdate = true;
+        lines.forEach((line, index) => {
+          const y = textStartY + index * lineHeight;
+          ctx.fillText(line, canvas.width / 2, y);
+        });
+      }
 
-    if (labelRef.current) {
-      labelRef.current.material.map = texture;
-      labelRef.current.material.needsUpdate = true;
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.needsUpdate = true;
+
+      if (labelRef.current) {
+        labelRef.current.material = labelRef.current.material.clone();
+        labelRef.current.material.transparent = true;
+        labelRef.current.material.map = texture;
+        labelRef.current.material.needsUpdate = true;
+      }
+    }
+
+    if (labelImage) {
+      const img = new Image();
+      img.src = labelImage;
+
+      img.onload = () => {
+        const w = canvas.width;
+        const h = canvas.height - canvas.height / 8;
+
+        ctx.drawImage(img, 0, 0, w, h);
+        drawFinalTexture();
+      };
+    } else {
+      drawFinalTexture();
     }
   }, [labelText, labelImage]);
+
 
   // ჩაჩის ფერის განახლება
   useEffect(() => {

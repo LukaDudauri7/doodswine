@@ -50,8 +50,21 @@ const BottleDesign = () => {
             className='bottle-design-section'
         >
             <motion.h1 variants={childVariants}>{content.header}</motion.h1>
+            <motion.div className="upload-wrapper" variants={childVariants}>
+                <label>ატვირთეთ ფოტო ეტიკეტისთვის</label>
+                <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const url = URL.createObjectURL(file);
+                        setLabelImage(url);
+                    }
+                    }}
+                />
+            </motion.div>
             <div className="bottle-design-container">
-
 
             <motion.div className="container" variants={childVariants}>
                 <motion.div className="label-group" variants={childVariants}>
@@ -82,21 +95,7 @@ const BottleDesign = () => {
                 ))}
                 </motion.div>
             </motion.div>
-            
-            <motion.div className="upload-wrapper" variants={childVariants}>
-                <label>ატვირთეთ ფოტო ეტიკეტისთვის</label>
-                <input
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => {
-                    const file = e.target.files[0];
-                    if (file) {
-                        const url = URL.createObjectURL(file);
-                        setLabelImage(url);
-                    }
-                    }}
-                />
-            </motion.div>
+        
 
             <motion.div variants={childVariants} className='wine-customizer-wrapper'>
                 <WineCustomizer capColor={capColor} labelText={labelText} labelImage={labelImage} />
