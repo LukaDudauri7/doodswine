@@ -27,8 +27,8 @@
         "mtsvaneDesc": "ნახევრად ტკბილი თეთრი ღვინო ქართლიდან.",
         "rkatsiteli": "რქაწითელი",
         "rkatsiteliDesc": "კახური თეთრი ღვინო.",
-        "chinuri": "ჩინებული",
-        "chinuriDesc": "ნახევრად ტკბილი თეთრი ღვინო, პოპულარული არჩევანი.",
+        "chinebuli": "ჩინებული",
+        "chinebuliDesc": "ნახევრად ტკბილი თეთრი ღვინო, პოპულარული არჩევანი.",
         "aladasturi": "ალადასტური",
         "aladasturiDesc": "ნახევრად ტკბილი წითელი ღვინო ქართლიდან.",
         "dirbula": "დირბულა",
@@ -46,7 +46,7 @@
     "about": {
       "title": "About Us",
       "shortText": "Dood's wine is a wine-producing company based on ancient traditions, focused on delivering high-quality products. Our goal is to offer the best quality wine that reflects the rich history and traditions of Georgian wine culture.",
-      "fullText": "Dood's wine is a wine-producing company rooted in ancient traditions, focused on delivering high-quality products. Our goal is to offer the best quality wine that reflects the rich history and traditions of Georgian wine culture. Today, the company offers a premium selection of wines including Goruli Mtsvane, Chinuri, Rkatsiteli, Aladasturi, and Dirbula. As for the bottle design and labeling, our team is dedicated to bringing customer ideas and desires to life with each product.",
+      "fullText": "Dood's wine is a wine-producing company rooted in ancient traditions, focused on delivering high-quality products. Our goal is to offer the best quality wine that reflects the rich history and traditions of Georgian wine culture. Today, the company offers a premium selection of wines including Goruli Mtsvane, Chinebuli, Rkatsiteli, Aladasturi, and Dirbula. As for the bottle design and labeling, our team is dedicated to bringing customer ideas and desires to life with each product.",
       "seeMore": "See more"
     },
     "home": {
@@ -70,8 +70,8 @@
         "mtsvaneDesc": "semi-sweet white wine from Kartli.",
         "rkatsiteli": "Rkatsiteli",
         "rkatsiteliDesc": "Kakhetian white wine.",
-        "chinuri": "Chinuri",
-        "chinuriDesc": "Semi-sweet white wine, a popular choice.",
+        "chinebuli": "Chinebuli",
+        "chinebuliDesc": "Semi-sweet white wine, a popular choice.",
         "aladasturi": "Aladasturi",
         "aladasturiDesc": "semi-sweet red wine from Kartli.",
         "dirbula": "Dirbula",

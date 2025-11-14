@@ -68,20 +68,16 @@ const BottleDesign = () => {
 
             <motion.div className="color-options" variants={childVariants}>
             {predefinedColors.map((color, index) => (
-                <motion.div
-                    key={color.value}
+                <motion.button
+                    type="button"
                     onClick={() => setCapColor(color.value)}
                     className={`color-circle ${capColor === color.value ? 'selected' : ''}`}
                     style={{ backgroundColor: color.value }}
-                    title={color.name}
-                    variants={childVariants}
                     whileHover={{ scale: 1.15 }}
-                    transition={{ type: "spring", stiffness: 400 }}
+                    whileTap={{ scale: 0.95 }}
                 >
-                {capColor === color.value && (
-                    <span className="color-checkmark">✓</span>
-                )}
-                </motion.div>
+                    {capColor === color.value && <span className="color-checkmark">✓</span>}
+                </motion.button>
             ))}
             </motion.div>
         </motion.div>

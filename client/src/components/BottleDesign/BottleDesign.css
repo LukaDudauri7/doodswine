@@ -55,6 +55,7 @@ label, p {
   justify-content: center;
   transition: all 0.2s ease;
   border: 2px solid #ccc;
+  pointer-events: all;
 }
 
 .color-circle.selected {

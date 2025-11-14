@@ -21,9 +21,9 @@ const Wine = () => {
       price: '₾35',
     },
     {
-      name: content.chinuri,
-      image: '/images/chinuri.jpg',
-      description: content.chinuriDesc,
+      name: content.chinebuli,
+      image: '/images/chinebuli.jpg',
+      description: content.chinebuliDesc,
       price: '₾35',
     },
     {
