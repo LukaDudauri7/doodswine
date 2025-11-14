@@ -55,7 +55,7 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
 
       img.onload = () => {
         const w = canvas.width;
-        const h = canvas.height - canvas.height / 8;
+        const h = canvas.height - canvas.height / 6;
 
         ctx.drawImage(img, 0, 0, w, h);
         drawFinalTexture();
