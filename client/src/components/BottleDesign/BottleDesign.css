@@ -71,15 +71,58 @@ label, p {
   margin-top: 130px;
 }
 
-.upload-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
+
+/* Upload area */
+.center-box {
+  width: 80%;
+  max-width: 360px;
+  margin: 40px auto;
+  padding: 20px 22px;
+  background: #ffffffee;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  backdrop-filter: blur(6px);
 }
+
+.center-box h2 {
+  font-size: 20px;
+  color: #4a3b0a;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.center-box p {
+  font-size: 14px;
+  margin-bottom: 16px;
+  color: #6e5b2b;
+}
+
+.upload-area {
+  width: 90%;
+  padding: 14px;
+  border: 2px dashed #c5a200;
+  border-radius: 12px;
+  background: #fff8d7;
+  color: #705600;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-size: 16px;
+  position: relative;
+  display: block;
+}
+
+.upload-area:hover {
+  background: #fff1b7;
+  border-color: #b69100;
+}
+
+.upload-area input {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
 @media (max-width: 768px) {
   .bottle-design-container{
     margin-top: -20px;

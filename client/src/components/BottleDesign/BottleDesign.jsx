@@ -50,20 +50,29 @@ const BottleDesign = () => {
             className='bottle-design-section'
         >
             <motion.h1 variants={childVariants}>{content.header}</motion.h1>
-            <motion.div className="upload-wrapper" variants={childVariants}>
-                <label>ატვირთეთ ფოტო ეტიკეტისთვის</label>
-                <input
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => {
-                    const file = e.target.files[0];
-                    if (file) {
-                        const url = URL.createObjectURL(file);
-                        setLabelImage(url);
-                    }
-                    }}
-                />
+            <motion.div className="upload-box" variants={childVariants}>
+                <div className="center-box">
+                    <h2>ატვირთეთ ეტიკეტის ფოტო</h2>
+                    <p>სურათი გამოყენებული იქნება ბოთლის დიზაინში.</p>
+
+                    <label className="upload-area">
+                        <span>📁 აირჩიეთ ფაილი</span>
+                        <input
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => {
+                            const file = e.target.files[0];
+                            if (file) {
+                            const url = URL.createObjectURL(file);
+                            setLabelImage(url);
+                            }
+                        }}
+                        />
+                    </label>
+                </div>
+
             </motion.div>
+
             <div className="bottle-design-container">
 
             <motion.div className="container" variants={childVariants}>
