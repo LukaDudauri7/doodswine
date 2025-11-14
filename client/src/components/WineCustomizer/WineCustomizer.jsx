@@ -12,8 +12,8 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
 
   useEffect(() => {
     const canvas = document.createElement("canvas");
-    canvas.width = 1024;
-    canvas.height = 512;
+    canvas.width = 1920;
+    canvas.height = 1580;
     const ctx = canvas.getContext("2d");
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -23,14 +23,14 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
     function drawFinalTexture() {
       if (labelText) {
         ctx.fillStyle = "#000000";
-        ctx.font = "bold 60px Georgia, serif";
+        ctx.font = "bold 120px Georgia, serif";
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
 
         const lines = labelText.split("\n");
         const lineHeight = 80;
 
-        const textStartY = labelImage ? 450 : 250; 
+        const textStartY = labelImage ? 1430 : 770; 
 
         lines.forEach((line, index) => {
           const y = textStartY + index * lineHeight;
@@ -119,14 +119,14 @@ export default function App({ capColor = "#8B0000", labelText = "შექმე
       frameloop="always"
       shadows={false}
       dpr={[1, 2]}
-      camera={{ position: [0, 2, 5], fov: 50 }}
+      camera={{ position: [0, 2, 5], fov: 40 }}
       className="canvas-container"
     >
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.8} />
       <directionalLight
         castShadow
         position={[5, 10, 5]}
-        intensity={1}
+        intensity={4}
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
       />
