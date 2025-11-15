@@ -13,7 +13,7 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
   useEffect(() => {
     const canvas = document.createElement("canvas");
     canvas.width = 1920;
-    canvas.height = 1580;
+    canvas.height = 1320;
     const ctx = canvas.getContext("2d");
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -30,7 +30,7 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
         const lines = labelText.split("\n");
         const lineHeight = 80;
 
-        const textStartY = labelImage ? 1430 : 770; 
+        const textStartY = labelImage ? 1210 : 670; 
 
         lines.forEach((line, index) => {
           const y = textStartY + index * lineHeight;
@@ -122,11 +122,11 @@ export default function App({ capColor = "#8B0000", labelText = "შექმე
       camera={{ position: [0, 2, 5], fov: 40 }}
       className="canvas-container"
     >
-      <ambientLight intensity={0.8} />
+      <ambientLight intensity={0.6} />
       <directionalLight
         castShadow
         position={[5, 10, 5]}
-        intensity={4}
+        intensity={2}
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
       />
