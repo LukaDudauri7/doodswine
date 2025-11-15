@@ -10,31 +10,31 @@ const Wine = () => {
   const wines = [
     {
       name: content.mtsvane,
-      image: '/images/mtsvane.jpg',
+      image: '/images/3.jpg',
       description: content.mtsvaneDesc,
-      price: '₾40',
+      price: '₾45',
     },
     {
       name: content.rkatsiteli,
-      image: '/images/rkatsiteli.jpg',
+      image: '/images/2.jpg',
       description: content.rkatsiteliDesc,
-      price: '₾35',
-    },
-    {
-      name: content.chinebuli,
-      image: '/images/chinebuli.jpg',
-      description: content.chinebuliDesc,
-      price: '₾35',
-    },
-    {
-      name: content.aladasturi,
-      image: '/images/aladasturi.jpg',
-      description: content.aladasturiDesc,
       price: '₾40',
     },
     {
+      name: content.chinebuli,
+      image: '/images/3.jpg',
+      description: content.chinebuliDesc,
+      price: '₾40',
+    },
+    {
+      name: content.aladasturi,
+      image: '/images/3.jpg',
+      description: content.aladasturiDesc,
+      price: '₾45',
+    },
+    {
       name: content.dirbula,
-      image: '/images/dirbula.jpg',
+      image: '/images/2.jpg',
       description: content.dirbulaDesc,
       price: '₾40',
     },

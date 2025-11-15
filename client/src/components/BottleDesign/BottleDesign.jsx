@@ -52,19 +52,17 @@ const BottleDesign = () => {
             <motion.h1 variants={childVariants}>{content.header}</motion.h1>
             <motion.div className="upload-box" variants={childVariants}>
                 <div className="center-box">
-                    <h2>ატვირთეთ ეტიკეტის ფოტო</h2>
-                    <p>სურათი გამოყენებული იქნება ბოთლის დიზაინში.</p>
-
+                    <h2>{content.uploadPhoto}</h2>
                     <label className="upload-area">
-                        <span>📁 აირჩიეთ ფაილი</span>
+                        <span>📁 {content.chooseFile}</span>
                         <input
                         type="file"
                         accept="image/*"
                         onChange={(e) => {
                             const file = e.target.files[0];
                             if (file) {
-                            const url = URL.createObjectURL(file);
-                            setLabelImage(url);
+                                const url = URL.createObjectURL(file);
+                                setLabelImage(url);
                             }
                         }}
                         />

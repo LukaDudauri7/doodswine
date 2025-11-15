@@ -37,7 +37,9 @@
     "bottleDesign": {
       "label": "ეტიკეტის ტექსტი",
       "cap": "ჩაჩის ფერი",
-      "header": "შეარჩიე შენი დიზაინი 🍷"
+      "header": "შეარჩიე შენი დიზაინი 🍷",
+      "chooseFile": "ფაილის არჩევა",
+      "uploadPhoto": "ატვირთეთ ეტიკეტის ფოტო"
     }
   },
 
@@ -80,7 +82,9 @@
     "bottleDesign": {
       "label": "Label Text",
       "cap": "Cap Color",
-      "header": "Choose Your Design 🍷"
+      "header": "Choose Your Design 🍷",
+      "chooseFile": "Choose File",
+      "uploadPhoto": "Upload Label Photo"
     }
   }
 }

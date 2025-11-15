@@ -88,7 +88,7 @@ export function WineBottle({ labelText = "ჩემი ღვინო", capColo
   return (
     <group
       scale={[0.8, 0.8, 0.8]}
-      position={[0, -1.5, 0]}
+      position={[0, -1.6, 0]}
       rotation={[Math.PI, 0, 0]}
     >
       {meshKeys.map((key, i) => {
