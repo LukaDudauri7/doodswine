@@ -7,13 +7,14 @@ function AuthModal({ type, onClose, setUser }) {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const API = process.env.REACT_APP_API_URL;
   
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       let res;
       if (type === "signup") {
-        res = await axios.post("http://localhost:5000/api/auth/register", {
+        res = await axios.post(`${API}/api/auth/register`, {
           email,
           name,
           password,
@@ -21,7 +22,7 @@ function AuthModal({ type, onClose, setUser }) {
         });
         alert("Account created!");
       } else {
-        res = await axios.post("http://localhost:5000/api/auth/login", {
+        res = await axios.post(`${API}/api/auth/login`, {
           email,
           password,
         });

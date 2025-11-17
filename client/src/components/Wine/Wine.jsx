@@ -22,7 +22,7 @@ const Wine = () => {
     },
     {
       name: content.chinebuli,
-      image: '/images/3.jpg',
+      image: '/images/1.jpg',
       description: content.chinebuliDesc,
       price: '₾40',
     },
