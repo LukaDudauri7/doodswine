@@ -152,7 +152,7 @@ const BottleDesign = ({ user, openModal }) => {
                     <WineCustomizer 
                         capColor={capColor} 
                         labelText={labelText} 
-                        labelImage={labelImage} 
+                        labelImage={labelImageBase64} 
                     />
                 </motion.div>
             </div>
