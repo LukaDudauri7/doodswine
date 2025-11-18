@@ -7,7 +7,7 @@ function AuthModal({ type, onClose, setUser }) {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const API = process.env.REACT_APP_API_URL;
+    const API = process.env.REACT_APP_API_URL || "http://localhost:5000";
   
   const handleSubmit = async (e) => {
     e.preventDefault();

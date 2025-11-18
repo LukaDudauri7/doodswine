@@ -51,7 +51,7 @@ function AppContent() {
         </Routes>
         {location.pathname === "/" && (
           <>
-            <BottleDesign />
+            <BottleDesign user={user} openModal={openModal} />
             <Wine />
             <About />
           </>

@@ -123,6 +123,27 @@ label, p {
   opacity: 0;
   pointer-events: none;
 }
+.save-label-btn {
+  margin-top: 20px;
+  padding: 12px 22px;
+  border: none;
+  background: #fff;
+  color: black;
+  font-weight: 600;
+  font-size: 17px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.save-label-btn:hover {
+  background: #f5d3d3;
+  transform: translateY(-2px);
+}
+
+.save-label-btn:active {
+  transform: scale(0.95);
+}
 
 @media (max-width: 768px) {
   .bottle-design-container{

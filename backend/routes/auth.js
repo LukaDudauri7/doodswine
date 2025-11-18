@@ -24,14 +24,19 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
+  console.log("LOGIN REQUEST:", req.body);
+
   const { email, password } = req.body;
+
   if (!email || !password)
     return res.status(400).json({ message: 'Fill in all fields' });
   try {
     const user = await User.findOne({ email });
+    console.log("FOUND USER:", user);
     if (!user)
       return res.status(400).json({ message: 'User not found' });
     const isMatch = await bcrypt.compare(password, user.password);
+    console.log("PASSWORD MATCH?", isMatch);
     if (!isMatch)
       return res.status(400).json({ message: 'Invalid credentials' });
     res.status(200).json({
@@ -43,8 +48,9 @@ router.post('/login', async (req, res) => {
       }
     });
   } catch (err) {
-    console.error(err);
+    console.error("SERVER ERROR:", err);
     res.status(500).json({ message: 'Server error' });
   }
 });
+
 module.exports = router;

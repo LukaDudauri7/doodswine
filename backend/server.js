@@ -18,6 +18,10 @@ mongoose
 // Import routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/wines', require('./routes/wines'));
+app.use('/api/label', require('./routes/label'));
+
+app.use("/uploads", express.static("uploads"));
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
