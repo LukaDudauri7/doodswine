@@ -3,6 +3,11 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 
+router.get('/test', async (req, res) => {
+  console.log("TEST REQUEST");
+  return res.status(201).json({ message: 'Fill in all fields' });
+});
+
 router.post('/register', async (req, res) => {
   const { name, email, password, confirmPassword } = req.body;
 

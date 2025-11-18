@@ -40,7 +40,7 @@ const BottleDesign = ({ user, openModal }) => {
 
         try {
             const res = await axios.post(
-                `${process.env.REACT_APP_API_URL}/api/wines/saveLabel`,
+                `${process.env.REACT_APP_API_URL}/api/saveLabel`,
                 {
                     user: user,
                     text: labelText,
