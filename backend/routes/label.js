@@ -2,18 +2,23 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 
-// Multer setup
+// Multer storage
 const storage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, "uploads/"),
-    filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname)
+    filename: (req, file, cb) => {
+        const uniqueName = Date.now() + "-" + file.originalname;
+        cb(null, uniqueName);
+    }
 });
+
 const upload = multer({ storage });
 
-router.post("/upload", upload.single("labelImage"), async (req, res) => {
+// POST /api/label
+router.post("/", upload.single("labelImage"), async (req, res) => {
     try {
         const { labelText, capColor } = req.body;
 
-        return res.json({
+        res.json({
             success: true,
             message: "Label saved",
             data: {

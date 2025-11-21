@@ -38,15 +38,20 @@ const BottleDesign = ({ user, openModal }) => {
             return;
         }
 
+        const formData = new FormData();
+        formData.append("labelText", labelText);
+        formData.append("capColor", capColor);
+
+        if (labelImage) {
+            const fileInput = document.querySelector("input[type='file']");
+            formData.append("labelImage", fileInput.files[0]);
+        }
+
         try {
-            const res = await axios.post(
+            await axios.post(
                 `${process.env.REACT_APP_API_URL}/api/label`,
-                {
-                    user: user,
-                    text: labelText,
-                    capColor,
-                    image: labelImageBase64,
-                }
+                formData,
+                { headers: { "Content-Type": "multipart/form-data" } }
             );
 
             alert("თქვენი ეტიკეტი წარმატებით შეინახა!");
