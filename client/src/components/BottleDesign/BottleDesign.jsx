@@ -30,7 +30,6 @@ const BottleDesign = ({ user, openModal }) => {
         reader.onloadend = () => setLabelImageBase64(reader.result);
         reader.readAsDataURL(file);
     };
-
     const handleSave = async () => {
         if (!user) {
             alert("გთხოვთ გაიაროთ ავტორიზაცია.");
@@ -46,12 +45,15 @@ const BottleDesign = ({ user, openModal }) => {
             const fileInput = document.querySelector("input[type='file']");
             formData.append("labelImage", fileInput.files[0]);
         }
-
         try {
             await axios.post(
                 `${process.env.REACT_APP_API_URL}/api/label`,
                 formData,
-                { headers: { "Content-Type": "multipart/form-data" } }
+                {
+                    headers: {
+                        "x-auth-token": user.token
+                    }
+                }
             );
 
             alert("თქვენი ეტიკეტი წარმატებით შეინახა!");

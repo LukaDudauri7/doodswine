@@ -29,10 +29,17 @@ function AuthModal({ type, onClose, setUser }) {
         });
         alert("Logged in!");
       }
-      localStorage.setItem("user", JSON.stringify(res.data.user.name));
+      localStorage.setItem("user", JSON.stringify({
+          name: res.data.user.name,
+          email: res.data.user.email,
+          token: res.data.token
+      }));
 
-      setUser(res.data.user.name);
-      // localStorage.setItem("token", res.data.token);
+      setUser({
+          name: res.data.user.name,
+          email: res.data.user.email,
+          token: res.data.token
+      });
       console.log("User:", res.data.user.name);
       onClose();
     } catch (error) {
