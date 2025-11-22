@@ -4,8 +4,9 @@ const multer = require("multer");
 const path = require("path");
 const Label = require("../models/Label");
 const auth = require("../middleware/auth");
+const upload = require("../middleware/upload");
 
-router.post("/", upload.single("image"), async (req, res) => {
+router.post("/", auth, upload.single("image"), async (req, res) => {
     try {
         const newLabel = new Label({
             userId: req.user.id,
@@ -25,6 +26,22 @@ router.post("/", upload.single("image"), async (req, res) => {
         res.status(500).json({ error: "Server error" });
     }
 });
+
+router.get("/all", async (req, res) => {
+    try {
+        const labels = await Label.find().sort({ createdAt: -1 });
+
+        res.json({
+            success: true,
+            count: labels.length,
+            labels
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Server Error" });
+    }
+});
+
 
 module.exports = router;
 
