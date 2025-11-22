@@ -37,14 +37,17 @@ const BottleDesign = ({ user, openModal }) => {
             return;
         }
 
+        const fileInput = document.querySelector("input[type='file']");
+        const file = fileInput?.files?.[0];
+
         const formData = new FormData();
         formData.append("labelText", labelText);
         formData.append("capColor", capColor);
 
-        if (labelImage) {
-            const fileInput = document.querySelector("input[type='file']");
-            formData.append("image", fileInput.files[0]);
+        if (file) {
+            formData.append("image", file);
         }
+
         try {
             await axios.post(
                 `${process.env.REACT_APP_API_URL}/api/label`,
