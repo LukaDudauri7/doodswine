@@ -43,7 +43,7 @@ const BottleDesign = ({ user, openModal }) => {
 
         if (labelImage) {
             const fileInput = document.querySelector("input[type='file']");
-            formData.append("labelImage", fileInput.files[0]);
+            formData.append("image", fileInput.files[0]);
         }
         try {
             await axios.post(
