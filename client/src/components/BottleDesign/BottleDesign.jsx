@@ -113,12 +113,6 @@ const BottleDesign = ({ user, openModal }) => {
                             }}
                         />
                     </label>
-                </div>
-            </motion.div>
-
-            <div className="bottle-design-container">
-
-                <motion.div className="container" variants={childVariants}>
                     <motion.div className="label-group" variants={childVariants}>
                         <motion.label variants={childVariants}>{content.label}</motion.label>
                         <motion.textarea
@@ -129,6 +123,12 @@ const BottleDesign = ({ user, openModal }) => {
                             rows="3"
                         />
                     </motion.div>
+                </div>
+            </motion.div>
+
+            <div className="bottle-design-container">
+
+                <motion.div className="container" variants={childVariants}>
 
                     <motion.p variants={childVariants}>{content.cap}</motion.p>
 
@@ -148,14 +148,6 @@ const BottleDesign = ({ user, openModal }) => {
                         ))}
                     </motion.div>
 
-                    {/* SAVE BUTTON */}
-                    <motion.button
-                        className="save-label-btn"
-                        variants={childVariants}
-                        onClick={handleSave}
-                    >
-                        ეტიკეტის შენახვა 📦🍷
-                    </motion.button>
                 </motion.div>
 
                 <motion.div variants={childVariants} className='wine-customizer-wrapper'>
@@ -165,6 +157,14 @@ const BottleDesign = ({ user, openModal }) => {
                         labelImage={labelImageBase64} 
                     />
                 </motion.div>
+
+                <motion.button
+                    className="save-label-btn"
+                    variants={childVariants}
+                    onClick={handleSave}
+                >
+                    ეტიკეტის შენახვა
+                </motion.button>
             </div>
         </motion.div>
     );

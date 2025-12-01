@@ -1,7 +1,7 @@
 .bottle-design-container{
   margin-top: 50px;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 textarea {
   padding: 8px 12px;
@@ -18,8 +18,8 @@ h1{
 }
 .container {
   text-align: center;
-  margin-top: 20px;
-  margin-right: 150px;
+  margin-top: 60px;
+  margin-left: 70px;
 }
 
 .label-group {
@@ -28,10 +28,10 @@ h1{
 
 label, p {
   display: block;
-  margin-bottom: 10px;
-  font-size: 16px;
-  font-family: Georgia, serif;
+  margin-bottom: 12px;
+  font-family: 'poppins-medium';
   font-size: 20px;
+  color: #ca9d4f;
 }
 .wine-customizer-wrapper {
   width: 80%;
@@ -111,7 +111,8 @@ label, p {
     font-size: 16px;
     position: relative;
     display: block;
-    margin-left: 55px;
+    margin-left: 45px;
+    font-family: 'poppins';
 }
 
 .upload-area:hover {
@@ -134,6 +135,9 @@ label, p {
   border-radius: 10px;
   cursor: pointer;
   transition: 0.25s ease;
+  height: 70px;
+  position: relative;
+  top: 210px;
 }
 
 .save-label-btn:hover {
@@ -150,7 +154,6 @@ label, p {
 
 @media (max-width: 768px) {
   .bottle-design-container{
-    margin-top: -20px;
     display: block;
   }
   .wine-customizer-wrapper {
@@ -158,11 +161,18 @@ label, p {
   }
   .container{
     margin-right: unset;
+    margin-top: unset;
   }
   .color-options {
     flex-direction: row;
   }
   .bottle-design-section {
     margin-top: 0;
+  }
+  .save-label-btn {
+    margin-top: 0;
+    margin-bottom: 20px;
+    margin-left: 25%;
+    top: 55px;
   }
 }

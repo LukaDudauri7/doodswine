@@ -6,7 +6,7 @@
 }
 
 .swiper {
-  width: 98%;
+  width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
@@ -14,13 +14,14 @@
 }
 
 .swiper-slide img {
-  width: 67%;
+  width: 100%;
   height: 580px;
   object-fit: cover;
   border-radius: 20px;
   display: block;
   margin: 0 auto;
   cursor: pointer;
+  outline: none;
 }
 
 .swiper-button-next,
@@ -45,15 +46,55 @@
 span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #ffffff;
 }
+.card-slider .swiper-slide {
+  transform: scale(0.75);
+  opacity: 0.45;
+  transition: all 0.35s ease-in-out;
+  display: flex;
+  justify-content: center;
+}
+
+/* Base for all slides */
+.card-slider .swiper-slide {
+  position: relative;
+  transition: 0.35s ease;
+  transform: scale(0.75);
+  opacity: 0.55;
+}
+
+/* Overlay for NON-active slides */
+.card-slider .swiper-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background-color: #576357;
+  opacity: 0.4;
+  transition: opacity 0.35s ease;
+}
+
+.card-slider .swiper-slide-active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.card-slider .swiper-slide-active::after {
+  opacity: 0;
+}
+
+.card-slider .swiper-slide-next,
+.card-slider .swiper-slide-prev {
+  transform: scale(0.85);
+  opacity: 0.5;
+}
+
+.card-slider .swiper-slide-next::after,
+.card-slider .swiper-slide-prev::after {
+  opacity: 0.2;
+}
 
 @media (max-width: 768px) {
   .swiper-slide img {
-    height: 400px;
-  }
-  .swiper{
-    width: 80%;
-  }
-  .swiper-slide img{
-    width: 70%;
+    height: 350px;
   }
 }

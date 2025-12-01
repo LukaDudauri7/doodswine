@@ -78,7 +78,7 @@
     "bottleDesign": {
       "label": "Label Text",
       "cap": "Cap Color",
-      "header": "Choose Your Design 🍷",
+      "header": "Choose Your Design",
       "chooseFile": "Choose File",
       "uploadPhoto": "Upload Label Photo"
     }
