@@ -1,4 +1,8 @@
 @font-face {
-    font-family: 'Hangyaboly';
-    src: url('../public/fonts/Hangyaboly.ttf');
+    font-family: 'BPG';
+    src: url('../public/fonts/BPG_LIA\ TTF.TTF');
+}
+@font-face {
+    font-family: 'poppins';
+    src: url('../public/fonts/POPPINS-REGULAR.TTF');
 }

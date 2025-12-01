@@ -14,20 +14,26 @@
 }
 
 .swiper-slide img {
-  width: 65%;
-  height: 600px;
+  width: 70%;
+  height: 540px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 50px;
   display: block;
   margin: 0 auto;
   cursor: pointer;
 }
 
+.swiper-button-next {
+  background-image: url(../../../public/images/next.png);
+}
+.swiper-button-prev {
+  background-image: url(../../../public/images/prev.png);
+}
 .swiper-button-next,
 .swiper-button-prev {
-  color: white !important;
-  width: 40px;
-  height: 40px;
+  color: #ca9d4f !important;
+  width: 42px;
+  height: 68px;
   border-radius: 50%;
   display: flex;
   justify-content: center;

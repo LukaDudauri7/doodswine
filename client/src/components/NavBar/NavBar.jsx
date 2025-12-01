@@ -23,8 +23,12 @@ function NavBar({ user, logout, openModal, captions }) {
   const renderLinks = () => (
     <>
       <Link to="/" onClick={() => setIsMenuOpen(false)}>{captions.headerHome}</Link>
+      <div className="divider" />
       <Link to="/wine" onClick={() => setIsMenuOpen(false)}>{captions.headerProducts}</Link>
+      <div className="divider" />
       <Link to="/about" onClick={() => setIsMenuOpen(false)}>{captions.headerAbout}</Link>
+      <div className="divider" />
+      <Link to="/contact" onClick={() => setIsMenuOpen(false)}>{captions.headerContact}</Link>
     </>
   );
 
@@ -38,8 +42,8 @@ function NavBar({ user, logout, openModal, captions }) {
         </>
       ) : (
         <>
-          <button onClick={() => openModal("login")}>{captions.logIn}</button>
-          <button onClick={() => openModal("signup")}>{captions.signUp}</button>
+          <button className="login" onClick={() => openModal("login")}></button>
+          <button className="signup" onClick={() => openModal("signup")}></button>
         </>
       )}
     </div>
@@ -47,7 +51,11 @@ function NavBar({ user, logout, openModal, captions }) {
 
   return (
     <nav className="App-nav">
-      <BrowserView>
+      <BrowserView className="header-container">
+        <div className="title">
+          <div className="header-logo"></div>
+          <div className="home-title">DOOD'S WINE</div>
+        </div>
         <div className={`menu ${isMenuOpen ? "open" : ""}`}>
           {renderLinks()}
           {renderAuthButtons()}

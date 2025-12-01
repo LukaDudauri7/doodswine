@@ -2,17 +2,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  background-color: #2e0f0f; /* მუქი ნავიგაციის ფონი */
+  padding: 15px;
+  background-color: #734142;
 }
 
 .App-nav a {
   text-decoration: none;
-  color: #f8f1e1;
+  color: #ca9d4f;
   margin: 0 10px;
   font-size: 20px;
-  font-family: 'Poppins', sans-serif;
-  transition: color 0.3s ease;
+  font-family: 'poppins';
+  line-height: 45px;
 }
 
 .App-nav a:hover {
@@ -27,35 +27,34 @@
 
 .menu {
   display: flex;
+  position: relative;
+  left: -50px;
+  gap: 12px;
 }
-
-.menu a {
-  margin-left: 20px;
+.divider{
+  background-color: rgb(202, 157, 79);
+  position: relative;
+  top: 14px;
+  width: 1px;
+  height: 16px;
+  opacity: 0.4;
 }
-
-/* ღილაკები */
 .auth-buttons {
   display: flex;
   gap: 15px;
-  align-items: center;
-  position: absolute;
-  right: 25px;
-  top: 12px;
+  position: relative;
+  top: -5px;
+  left: 15px;
 }
-
 .auth-buttons button {
-  padding: 12px 20px;
-  font-size: 15px;
   font-weight: 600;
   border: none;
-  border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #721817, #a8003a);
   color: #fdf5f1;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  letter-spacing: 0.5px;
+  position: relative;
+  top: 14px;
 }
 
 .auth-buttons button:hover {
@@ -64,24 +63,10 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Login ღილაკი ცალკე სტილში */
-.login-btn {
-  background-color: transparent;
-  color: #e6b800;
-  border: 2px solid #e6b800;
-  box-shadow: none;
-}
-
-.login-btn:hover {
-  background-color: #a8003a;
-  color: #fff;
-  border-color: #a8003a;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
 .user-initial {
   width: 40px;
   height: 40px;
-  background-color: #a8003a; /* ან შენი ბრენდის ფერი */
+  background-color: #a8003a;
   color: #fcf8f3;
   border-radius: 50%;
   display: flex;
@@ -93,8 +78,6 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-
-/* ჰამბურგერი */
 .hamburger {
   cursor: pointer;
   display: flex;
@@ -107,6 +90,33 @@
   width: 25px;
   height: 3px;
   background-color: #f8f1e1;
+}
+.header-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 5px;
+}
+.title {
+  display: flex;
+  margin-left: 10px;
+}
+.header-logo {
+  background-image: url(../../../public/images/headerlogo.png);
+  width: 45px;
+  height: 52px;
+  background-size: cover;
+  position: relative;
+  top: -5px;
+}
+.home-title {
+  font-family: 'BPG';
+  font-size: 32px;
+  color: #ca9d4f;
+  position: relative;
+  top: 5px;
+  left: 12px;
 }
 
 /* მობილური მენიუ */
@@ -158,7 +168,18 @@
   border-radius: 5px;
   cursor: pointer;
 }
-
+.login {
+  background: url(../../../public/images/login.png);
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+}
+.signup {
+  background: url(../../../public/images/signup.png);
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+}
 /* ჰედერი და მობილური */
 @media (max-width: 768px) {
   .auth-buttons{

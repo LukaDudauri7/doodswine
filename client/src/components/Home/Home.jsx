@@ -11,15 +11,6 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            <motion.h1
-                initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="home-title"
-            >
-                DOOD'S WINE
-            </motion.h1>
-
             <motion.h2
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}

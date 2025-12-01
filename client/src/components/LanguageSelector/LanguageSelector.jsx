@@ -1,18 +1,29 @@
 import { useLanguage } from "../../languageContext";
-import "./LanguageSelector.css"; // Assuming you have a CSS file for styling
+import "./LanguageSelector.css";
 
 const LanguageSelector = () => {
   const { language, setLanguage } = useLanguage();
 
-  const handleChange = (e) => {
-    setLanguage(e.target.value);
+  const changeLanguage = (lang) => {
+    setLanguage(lang);
   };
 
   return (
-    <select value={language} onChange={handleChange} className="language-selector">
-      <option value="en">EN</option>
-      <option value="ge">GE</option>
-    </select>
+    <div className="flag-container">
+      <img
+        src="../../../images/flags/us.svg"
+        alt="English"
+        className={`flag ${language === "en" ? "active" : ""}`}
+        onClick={() => changeLanguage("en")}
+      />
+
+      <img
+        src="../../../images/flags/geo.png"
+        alt="Georgian"
+        className={`flag ${language === "ge" ? "active" : ""}`}
+        onClick={() => changeLanguage("ge")}
+      />
+    </div>
   );
 };
 

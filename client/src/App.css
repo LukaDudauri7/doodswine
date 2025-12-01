@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  background-color: #1b0a0a; /* მუქი ღვინისფერი ფონი */
+  background-color: #fff3e7;
   color: #f8f1e1;
   font-family: 'Poppins', sans-serif;
   -webkit-tap-highlight-color: transparent;
@@ -17,5 +17,6 @@ body {
 
 main {
   flex: 1;
+  background-image: url('../public/images/background.png');
 }
 

@@ -13,9 +13,7 @@
         "headerHome": "მთავარი",
         "headerProducts": "პროდუქტები",
         "headerAbout": "ჩვენ შესახებ",
-        "logIn": "შესვლა",
-        "signUp": "რეგისტრაცია",
-        "logOut": "გამოსვლა"
+        "headerContact": "კონტაქტი"
     },
     "footer": {
         "copyright": "© 2025 წელი Dood's Wine. ყველა უფლება დაცულია.",
@@ -55,12 +53,10 @@
       "brandName": "WHERE WINE MEETS ART"
     },
     "header": {
-        "headerHome": "Home",
-        "headerProducts": "Products",
-        "headerAbout": "About Us",
-        "logIn": "Login",
-        "signUp": "Sign Up",
-        "logOut": "Logout"
+        "headerHome": "HOME",
+        "headerProducts": "PRODUCTS",
+        "headerAbout": "ABOUT US",
+        "headerContact": "CONTACT"
     },
     "footer": {
         "copyright": "Copyright © 2025 Dood's Wine. All Rights Reserved.",
