@@ -2,15 +2,16 @@
   display: flex;
   gap: 10px;
   align-items: center;
+  margin-left: 25px;
 }
 
 .flag {
-  width: 32px;
-  height: 24px;
+  width: 21px;
+  height: 21px;
   cursor: pointer;
   opacity: 1;
   transition: 0.2s;
-  border-radius: 4px;
+  border-radius: 50%;
 }
 
 .flag:hover {

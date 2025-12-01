@@ -34,11 +34,9 @@ function NavBar({ user, logout, openModal, captions }) {
 
   const renderAuthButtons = () => (
     <div className="auth-buttons">
-      <LanguageSelector />
       {user ? (
         <>
-          <div className="user-initial">{user.name.charAt(0).toUpperCase() || "?"}</div>
-          <button onClick={logout}>{captions.logOut}</button>
+          <button className="logout" onClick={logout}></button>
         </>
       ) : (
         <>
@@ -46,6 +44,7 @@ function NavBar({ user, logout, openModal, captions }) {
           <button className="signup" onClick={() => openModal("signup")}></button>
         </>
       )}
+      <LanguageSelector />
     </div>
   );
 
@@ -62,7 +61,11 @@ function NavBar({ user, logout, openModal, captions }) {
         </div>
       </BrowserView>
 
-      <MobileView>
+      <MobileView className="header-container">
+        <div className="title">
+          <div className="header-logo"></div>
+          <div className="home-title">DOOD'S WINE</div>
+        </div>
         {renderAuthButtons()}
         <div ref={menuRef}>
           <div className={`hamburger ${isMenuOpen ? "open" : ""}`} onClick={() => setIsMenuOpen(prev => !prev)}>

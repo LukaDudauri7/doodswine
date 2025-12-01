@@ -92,7 +92,7 @@ const BottleDesign = ({ user, openModal }) => {
             viewport={{ once: true, amount: 0.1 }}
             className='bottle-design-section'
         >
-            <motion.h1 variants={childVariants}>{content.header}</motion.h1>
+            <motion.h1 className='chooseText' variants={childVariants}>{content.header}</motion.h1>
 
             {/* IMAGE UPLOAD */}
             <motion.div className="upload-box" variants={childVariants}>

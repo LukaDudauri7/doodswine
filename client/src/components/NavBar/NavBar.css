@@ -4,6 +4,9 @@
   align-items: center;
   padding: 15px;
   background-color: #734142;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
 }
 
 .App-nav a {
@@ -11,7 +14,7 @@
   color: #ca9d4f;
   margin: 0 10px;
   font-size: 20px;
-  font-family: 'poppins';
+  font-family: 'poppins-medium';
   line-height: 45px;
 }
 
@@ -41,7 +44,7 @@
 }
 .auth-buttons {
   display: flex;
-  gap: 15px;
+  gap: 5px;
   position: relative;
   top: -5px;
   left: 15px;
@@ -51,31 +54,14 @@
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: 'Poppins', sans-serif;
   color: #fdf5f1;
   position: relative;
-  top: 14px;
+  top: 13px;
 }
 
 .auth-buttons button:hover {
   transform: translateY(-3px);
   filter: brightness(1.1);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.user-initial {
-  width: 40px;
-  height: 40px;
-  background-color: #a8003a;
-  color: #fcf8f3;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-  font-size: 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .hamburger {
@@ -84,6 +70,8 @@
   flex-direction: column;
   gap: 4px;
   padding: 10px;
+  position: absolute;
+  left: -5px;
 }
 
 .hamburger .bar {
@@ -105,7 +93,7 @@
 .header-logo {
   background-image: url(../../../public/images/headerlogo.png);
   width: 45px;
-  height: 52px;
+  height: 53px;
   background-size: cover;
   position: relative;
   top: -5px;
@@ -119,14 +107,13 @@
   left: 12px;
 }
 
-/* მობილური მენიუ */
 .mobile-menu {
   position: absolute;
   top: 60px;
   left: 10px;
-  background-color: #2e0f0f;
+  background-color: #734142;
   border-radius: 12px;
-  padding: 12px 16px;
+  padding: 0px 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 100;
 }
@@ -147,7 +134,6 @@
   transform: scale(1.03);
 }
 
-/* მომხმარებლის ინფორმაცია */
 .user-info {
   display: flex;
   align-items: center;
@@ -180,16 +166,24 @@
   height: 25px;
   background-size: cover;
 }
+.logout {
+  background: url(../../../public/images/logout.png);
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+}
 /* ჰედერი და მობილური */
 @media (max-width: 768px) {
   .auth-buttons{
-    top: auto;
+    top: -5px;
+    left: 0;
   }
   .auth-buttons button:hover {
     transform: translateY(0);
   }
   .auth-buttons button {
     font-size: 12px;
+    top: 8px;
   }
   .menu {
     display: none;
@@ -212,5 +206,22 @@
 
   .App-nav {
     justify-content: left;
+  }
+  .home-title {
+    font-size: 23px;
+  }
+  .header-logo {
+    width: 38px;
+    height: 44px;
+  }
+  .title {
+    margin-left: 30px;
+  }
+  .flag-container{
+    margin-left: 5px;
+    gap: 8px;
+  }
+  .divider {
+    display: none;
   }
 }

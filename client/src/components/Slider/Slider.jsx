@@ -11,20 +11,22 @@ const Slider = () => {
   const images = Array.from({ length: imageCount }, (_, i) => `/images/wine${i + 1}.webp`);
   return (
     <div className="slider-container">
-      <Swiper
-        modules={[Navigation, Pagination]}
-        slidesPerView={1}
-        spaceBetween={10}
-        navigation
-        pagination={{ clickable: true }}
-        loop={true}
-      >
-      {images.map((src, index) => (
-        <SwiperSlide key={index}>
-          <img src={src} alt={`Wine ${index + 1}`} />
-        </SwiperSlide>
-      ))}
-      </Swiper>
+  <Swiper
+    modules={[Navigation, Pagination]}
+    slidesPerView={1.3}
+    centeredSlides={true}
+    spaceBetween={30}
+    navigation
+    pagination={{ clickable: true }}
+    loop={true}
+    className="blur-slider"
+  >
+    {images.map((src, index) => (
+      <SwiperSlide key={index}>
+        <img src={src} alt={`Wine ${index + 1}`} />
+      </SwiperSlide>
+    ))}
+  </Swiper>
     </div>
   );
 };

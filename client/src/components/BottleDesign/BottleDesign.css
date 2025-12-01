@@ -144,6 +144,9 @@ label, p {
 .save-label-btn:active {
   transform: scale(0.95);
 }
+.chooseText{
+  color: #ca9d4f;
+}
 
 @media (max-width: 768px) {
   .bottle-design-container{

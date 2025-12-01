@@ -21,12 +21,12 @@ const Home = () => {
             </motion.h2>
 
             <motion.div
-                initial={{ x: "100%", opacity: 0 }} // იწყება ეკრანის მარჯვენა კიდიდან (100% of viewport width)
-                animate={{ x: "0%", opacity: 1 }}  // სრულდება თავის პოზიციაზე (0% of viewport width offset)
+                initial={{ x: "100%", opacity: 0 }}
+                animate={{ x: "0%", opacity: 1 }}
                 transition={{
-                    duration: 0.8, // ანიმაციის ხანგრძლივობა (0.8 წამი)
-                    delay: 1.2,    // დაყოვნება სანამ დაიწყება ანიმაცია (1.2 წამი)
-                    ease: "easeOut" // ანიმაციის გამარტივება: სწრაფი დასაწყისი, ნელი დასასრული
+                    duration: 0.8,
+                    delay: 1.2,
+                    ease: "easeOut"
                 }}
             >
                 <SocialBar />

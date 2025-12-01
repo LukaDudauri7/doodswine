@@ -1,13 +1,13 @@
 /* src/pages/Wine.css */
 .wine-page {
   padding: 100px 20px;
-  background-color: #1b0a0a;
+  background-image: url('../../../public/images/background.png');
   text-align: center;
 }
 
 .wine-page h1 {
   font-family: 'Poppins', sans-serif;
-  color: #fdf6f0;
+  color: #ca9d4f;
   margin-bottom: 40px;
 }
 

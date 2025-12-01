@@ -11,7 +11,7 @@ const LanguageSelector = () => {
   return (
     <div className="flag-container">
       <img
-        src="../../../images/flags/us.svg"
+        src="../../../images/flags/us.png"
         alt="English"
         className={`flag ${language === "en" ? "active" : ""}`}
         onClick={() => changeLanguage("en")}
