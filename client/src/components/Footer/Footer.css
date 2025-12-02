@@ -1,9 +1,9 @@
 .footer{
     position: relative;
-    color: #ca9d4f;
+    color: #d5cbc1;
     z-index: 10;
     text-align: center;
-    background-color: #734142;
+    background-color: #576357;
 }
 .copyright{
     cursor: pointer;

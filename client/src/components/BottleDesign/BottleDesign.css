@@ -84,7 +84,7 @@ label, p {
   margin: 40px auto;
   padding: 5px 5px;
   background: #ffffffee;
-  border-radius: 16px;
+  border-radius: 20px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
   text-align: center;
   backdrop-filter: blur(6px);
@@ -197,5 +197,12 @@ label, p {
   .center-box{
     margin: 0;
     margin-top: 40px;
+  }
+  .chooseText{
+    font-size: 24px;
+  }
+  .color-circle {
+    width: 35px;
+    height: 35px;
   }
 }

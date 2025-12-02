@@ -37,9 +37,9 @@
   border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: 'Georgia', serif;
-  background: linear-gradient(135deg, #4a2d3c, #ca9d4f);
-  color: #fdf5f1;
+  font-family: 'poppins-medium';
+  background: #734142;
+  color: #ca9d4f;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   letter-spacing: 0.5px;
 }

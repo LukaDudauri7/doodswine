@@ -62,17 +62,17 @@ function NavBar({ user, logout, openModal, captions }) {
       </BrowserView>
 
       <MobileView className="header-container">
-        <div className="title">
-          <div className="header-logo"></div>
-          <div className="home-title">DOOD'S WINE</div>
-        </div>
-        {renderAuthButtons()}
         <div ref={menuRef}>
           <div className={`hamburger ${isMenuOpen ? "open" : ""}`} onClick={() => setIsMenuOpen(prev => !prev)}>
             <div className="bar" /><div className="bar" /><div className="bar" />
           </div>
           {isMenuOpen && <div className="mobile-menu">{renderLinks()}</div>}
         </div>
+        <div className="title">
+          <div className="header-logo"></div>
+          <div className="home-title">DOOD'S WINE</div>
+        </div>
+        {renderAuthButtons()}
       </MobileView>
     </nav>
   );
