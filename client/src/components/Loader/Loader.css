@@ -13,7 +13,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, var(--loader-dark-bg) 0%, var(--loader-medium-bg) 50%, var(--loader-dark-bg) 100%);
+  background: #76716b;
   position: fixed;
   top: 0;
   left: 0;
@@ -30,7 +30,6 @@
   margin-bottom: 3rem;
   text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
   letter-spacing: 3px;
-  animation: glow 2s ease-in-out infinite alternate;
   font-family: 'BPG';
 }
 
@@ -107,10 +106,10 @@
 .wine-glass-stem {
   position: absolute;
   bottom: -40px;
-  left: 50%;
+  left: 53%;
   transform: translateX(-50%);
   width: 6px;
-  height: 50px;
+  height: 78px;
   background: linear-gradient(to bottom, var(--loader-brand-gold), #b8941f);
   border-radius: 3px;
   box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
@@ -118,10 +117,10 @@
 
 .wine-glass-base {
   position: absolute;
-  bottom: -40px; /* Adjust to sit below the stem */
-  left: 50%;
+  bottom: -40px;
+  left: 53%;
   transform: translateX(-50%);
-  width: 50px;
+  width: 79px;
   height: 6px;
   background: linear-gradient(90deg, #b8941f, var(--loader-brand-gold), #b8941f);
   border-radius: 25px;
@@ -132,7 +131,6 @@
     color: var(--loader-brand-gold);
     font-size: 1.8rem;
     font-weight: bold;
-    /* text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); */
     position: relative;
     top: 12px;
     font-family: 'poppins-medium';

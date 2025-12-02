@@ -24,7 +24,7 @@ const WineGlassLoader = () => {
     const interval = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
-          setLoadingText('მზადაა! 🍷');
+          setLoadingText('მზადაა!');
           clearInterval(interval);
           return 100;
         }
