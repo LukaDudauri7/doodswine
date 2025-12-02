@@ -38,8 +38,8 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: 'poppins-medium';
-  background: #734142;
-  color: #ca9d4f;
+  background: #576357;
+  color: #d5cbc1;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   letter-spacing: 0.5px;
 }
@@ -83,7 +83,7 @@
   }
 
   .about-title {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .about-text {

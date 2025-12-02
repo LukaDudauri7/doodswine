@@ -56,3 +56,10 @@
   color: #2e1c14;
   font-size: 16px;
 }
+
+
+@media (max-width: 768px) {
+   .wine-page h1 {
+    font-size: 24px;
+   }
+}
