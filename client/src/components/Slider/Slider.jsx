@@ -8,7 +8,7 @@ import './Slider.css';
 
 const Slider = () => {
   const imageCount = 7;
-  const images = Array.from({ length: imageCount }, (_, i) => `/images/wine${i + 1}.webp`);
+  const images = Array.from({ length: imageCount }, (_, i) => `/images/wines/wine${i + 1}.webp`);
   return (
     <div className="slider-container">
     <Swiper

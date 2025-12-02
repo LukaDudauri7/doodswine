@@ -1,10 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap');
-
 .home-container {
     background-color: #fff3e7;
     color: #f8f4f0;
     text-align: center;
-    font-family: 'Playfair Display', serif;
+    font-family: 'poppins-medium';
     padding-top: 100px;
     background-image: url('../../../public/images/background.png');
 }

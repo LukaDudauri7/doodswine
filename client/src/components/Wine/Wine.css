@@ -1,11 +1,11 @@
 .wine-page {
-  padding: 100px 20px;
+  padding: 20px 20px;
   background-image: url('../../../public/images/background.png');
   text-align: center;
 }
 
 .wine-page h1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'poppins-medium';
   color: #ca9d4f;
   margin-bottom: 40px;
 }
@@ -40,8 +40,8 @@
 
 .wine-card h2 {
     font-size: 24px;
-    font-family: 'Poppins', sans-serif;
-    color: #8d0449;
+    font-family: 'poppins-medium';
+    color: #ca9d4f;
     margin: 15px 0 10px;
 }
 

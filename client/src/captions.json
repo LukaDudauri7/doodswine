@@ -33,9 +33,10 @@
         "dirbulaDesc": "ნახევრად ტკბილი წითელი ღვინო, პოპულარული არჩევანი."
     },
     "bottleDesign": {
+      "save": "ეტიკეტის შენახვა",
       "label": "ეტიკეტის ტექსტი",
       "cap": "ჩაჩის ფერი",
-      "header": "შეარჩიე შენი დიზაინი 🍷",
+      "header": "შეარჩიე შენი დიზაინი",
       "chooseFile": "ფაილის არჩევა",
       "uploadPhoto": "ატვირთეთ ეტიკეტის ფოტო"
     }
@@ -76,6 +77,7 @@
         "dirbulaDesc": "Semi-sweet red wine, a popular choice."
     },
     "bottleDesign": {
+      "save": "Save Label",
       "label": "Label Text",
       "cap": "Cap Color",
       "header": "Choose Your Design",

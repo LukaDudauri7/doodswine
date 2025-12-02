@@ -94,37 +94,7 @@ const BottleDesign = ({ user, openModal }) => {
         >
             <motion.h1 className='chooseText' variants={childVariants}>{content.header}</motion.h1>
 
-            {/* IMAGE UPLOAD */}
-            <motion.div className="upload-box" variants={childVariants}>
-                <div className="center-box">
-                    <h2>{content.uploadPhoto}</h2>
-                    <label className="upload-area">
-                        <span>📁 {content.chooseFile}</span>
-                        <input
-                            type="file"
-                            accept="image/*"
-                            onChange={(e) => {
-                                const file = e.target.files[0];
-                                if (file) {
-                                    const url = URL.createObjectURL(file);
-                                    setLabelImage(url);
-                                    convertToBase64(file);
-                                }
-                            }}
-                        />
-                    </label>
-                    <motion.div className="label-group" variants={childVariants}>
-                        <motion.label variants={childVariants}>{content.label}</motion.label>
-                        <motion.textarea
-                            variants={childVariants}
-                            value={labelText}
-                            onChange={(e) => setLabelText(e.target.value)}
-                            placeholder={"ჩაწერეთ ტექსტი...\n (Enter - ახალი ხაზი)"}
-                            rows="3"
-                        />
-                    </motion.div>
-                </div>
-            </motion.div>
+       
 
             <div className="bottle-design-container">
 
@@ -158,13 +128,44 @@ const BottleDesign = ({ user, openModal }) => {
                     />
                 </motion.div>
 
-                <motion.button
-                    className="save-label-btn"
-                    variants={childVariants}
-                    onClick={handleSave}
-                >
-                    ეტიკეტის შენახვა
-                </motion.button>
+                <motion.div className="upload-box" variants={childVariants}>
+                    <div className="center-box">
+                        <h2>{content.uploadPhoto}</h2>
+                        <label className="upload-area">
+                            <span>📁 {content.chooseFile}</span>
+                            <input
+                                type="file"
+                                accept="image/*"
+                                onChange={(e) => {
+                                    const file = e.target.files[0];
+                                    if (file) {
+                                        const url = URL.createObjectURL(file);
+                                        setLabelImage(url);
+                                        convertToBase64(file);
+                                    }
+                                }}
+                            />
+                        </label>
+                        <motion.div className="label-group" variants={childVariants}>
+                            <motion.label variants={childVariants}>{content.label}</motion.label>
+                            <motion.textarea
+                                variants={childVariants}
+                                value={labelText}
+                                onChange={(e) => setLabelText(e.target.value)}
+                                placeholder={"ჩაწერეთ ტექსტი...\n (Enter - ახალი ხაზი)"}
+                                rows="3"
+                            />
+                        </motion.div>
+                    </div>
+                    <motion.button
+                        className="save-label-btn"
+                        variants={childVariants}
+                        onClick={handleSave}
+                    >
+                        {content.save}
+                    </motion.button>
+                </motion.div>
+      
             </div>
         </motion.div>
     );

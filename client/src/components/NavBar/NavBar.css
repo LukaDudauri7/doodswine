@@ -172,11 +172,10 @@
   height: 25px;
   background-size: cover;
 }
-/* ჰედერი და მობილური */
 @media (max-width: 768px) {
   .auth-buttons{
     top: -5px;
-    left: 0;
+    left: -18px;
   }
   .auth-buttons button:hover {
     transform: translateY(0);
@@ -202,10 +201,6 @@
 
   .App-nav a {
     margin: 10px 0;
-  }
-
-  .App-nav {
-    justify-content: left;
   }
   .home-title {
     font-size: 23px;

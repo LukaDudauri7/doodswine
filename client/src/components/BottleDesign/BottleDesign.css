@@ -20,12 +20,17 @@ h1{
   text-align: center;
   margin-top: 60px;
   margin-left: 70px;
+  position: relative;
+  left: 50px;
 }
 
 .label-group {
   margin-bottom: 30px;
 }
-
+.upload-box {
+    position: relative;
+    right: 40px;
+}
 label, p {
   display: block;
   margin-bottom: 12px;
@@ -83,6 +88,7 @@ label, p {
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
   text-align: center;
   backdrop-filter: blur(6px);
+  margin-left: 0;
 }
 
 .center-box h2 {
@@ -99,8 +105,8 @@ label, p {
 }
 
 .upload-area {
-    width: 60%;
-    height: 25px;
+    width: 50%;
+    height: 20px;
     padding: 14px;
     border: 2px dashed #c5a200;
     border-radius: 12px;
@@ -111,7 +117,7 @@ label, p {
     font-size: 16px;
     position: relative;
     display: block;
-    margin-left: 45px;
+    margin-left: 60px;
     font-family: 'poppins';
 }
 
@@ -125,11 +131,10 @@ label, p {
   pointer-events: none;
 }
 .save-label-btn {
-  margin-top: 20px;
   padding: 12px 22px;
   border: none;
-  background: #fff;
-  color: black;
+  background: #734142;
+  color: #ca9d4f;
   font-weight: 600;
   font-size: 17px;
   border-radius: 10px;
@@ -137,7 +142,9 @@ label, p {
   transition: 0.25s ease;
   height: 70px;
   position: relative;
-  top: 210px;
+  top: 20px;
+  left: 60px;
+  width: 180px;
 }
 
 .save-label-btn:hover {
@@ -150,6 +157,8 @@ label, p {
 }
 .chooseText{
   color: #ca9d4f;
+  font-size: 32px;
+  font-family: 'poppins-medium';
 }
 
 @media (max-width: 768px) {
@@ -162,6 +171,8 @@ label, p {
   .container{
     margin-right: unset;
     margin-top: unset;
+    margin-left: unset;
+    left: unset;
   }
   .color-options {
     flex-direction: row;
@@ -172,7 +183,9 @@ label, p {
   .save-label-btn {
     margin-top: 0;
     margin-bottom: 20px;
-    margin-left: 25%;
-    top: 55px;
+    top: 0;
+  }
+  .upload-box {
+    right: -30px;
   }
 }

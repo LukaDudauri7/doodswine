@@ -1,9 +1,7 @@
 .social-bar {
   position: fixed;
-  right: 0;
+  right: 30px;
   width: 140px;
-  /* top: 50%;
-  transform: translateY(-50%); */
   height: auto;
   z-index: 999;
 }

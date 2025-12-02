@@ -1,13 +1,10 @@
-/* src/components/Loader/Loader.css */
-
-/* CSS Variables */
 :root {
-  --loader-brand-gold: #d4af37;
-  --loader-dark-bg: #1a0f0a;
-  --loader-medium-bg: #2c1810;
+  --loader-brand-gold: #ca9d4f;
+  --loader-dark-bg: #734142;
+  --loader-medium-bg: #734142;
   --loader-wine-dark: #722f37;
-  --loader-wine-medium: #8b1538;
-  --loader-wine-light: #a91b47;
+  --loader-wine-medium: #734142;
+  --loader-wine-light: #734142;
 }
 
 .loader-container {
@@ -23,7 +20,7 @@
   width: 100%;
   z-index: 9999;
   overflow: hidden;
-  font-family: 'Georgia', serif;
+  font-family: 'poppins-medium';
 }
 
 .brand-title {
@@ -34,6 +31,7 @@
   text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
   letter-spacing: 3px;
   animation: glow 2s ease-in-out infinite alternate;
+  font-family: 'BPG';
 }
 
 .wine-glass-wrapper {
@@ -137,7 +135,7 @@
     text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
     position: relative;
     top: 12px;
-    font-family: 'Poppins'
+    font-family: 'poppins-medium';
 }
 
 .loader-status-text {
