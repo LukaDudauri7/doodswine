@@ -155,19 +155,19 @@
   cursor: pointer;
 }
 .login {
-  background: url(../../../public/images/login.png);
+  background: url(../../../public/images/login/login.png);
   width: 25px;
   height: 25px;
   background-size: cover;
 }
 .signup {
-  background: url(../../../public/images/signup.png);
+  background: url(../../../public/images/login/signup.png);
   width: 25px;
   height: 25px;
   background-size: cover;
 }
 .logout {
-  background: url(../../../public/images/logout.png);
+  background: url(../../../public/images/login/logout.png);
   width: 25px;
   height: 25px;
   background-size: cover;
