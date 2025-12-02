@@ -132,7 +132,7 @@
     color: var(--loader-brand-gold);
     font-size: 1.8rem;
     font-weight: bold;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    /* text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); */
     position: relative;
     top: 12px;
     font-family: 'poppins-medium';
