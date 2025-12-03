@@ -1,6 +1,6 @@
 // src/components/NavBar/NavBar.jsx
 import React, { useState, useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BrowserView, MobileView } from "react-device-detect";
 import LanguageSelector from "../LanguageSelector/LanguageSelector";
 import "./NavBar.css";
@@ -47,13 +47,23 @@ function NavBar({ user, logout, openModal, captions }) {
       <LanguageSelector />
     </div>
   );
-
+  const useGoHome = () => {
+      const navigate = useNavigate();
+      const location = useLocation();
+      return () => {
+        if (location.pathname === "/") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          navigate("/");
+        }
+      };
+    }
   return (
     <nav className="App-nav">
       <BrowserView className="header-container">
         <div className="title">
-          <div className="header-logo"></div>
-          <div className="home-title">DOOD'S WINE</div>
+          <Link to="/" className="header-logo" onClick={useGoHome()} />
+          <Link to="/" className="home-title" onClick={useGoHome()}>DOOD'S WINE</Link>
         </div>
         <div className={`menu ${isMenuOpen ? "open" : ""}`}>
           {renderLinks()}
@@ -69,8 +79,8 @@ function NavBar({ user, logout, openModal, captions }) {
           {isMenuOpen && <div className="mobile-menu">{renderLinks()}</div>}
         </div>
         <div className="title">
-          <div className="header-logo"></div>
-          <div className="home-title">DOOD'S WINE</div>
+          <Link to="/" className="header-logo" onClick={useGoHome()} />
+          <Link to="/" className="home-title" onClick={useGoHome()}>DOOD'S WINE</Link>
         </div>
         {renderAuthButtons()}
       </MobileView>

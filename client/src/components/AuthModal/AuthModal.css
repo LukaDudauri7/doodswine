@@ -20,7 +20,7 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   position: relative;
   animation: fadeIn 0.3s ease-in-out;
-  font-family: 'Arial', sans-serif;
+  font-family: 'poppins-medium';
 }
 
 /* Close Button */
@@ -44,7 +44,7 @@
   color: #7b3e19;
   font-size: 28px;
   margin-bottom: 20px;
-  font-family: 'Fredoka One', cursive;
+  font-family: 'poppins-medium';
 }
 
 /* Form */
@@ -72,7 +72,7 @@
 /* Submit Button */
 .auth-modal button[type="submit"] {
   padding: 12px;
-  background-color: #7b3e19;
+  background-color: #734142;
   color: #fff;
   border: none;
   border-radius: 8px;
