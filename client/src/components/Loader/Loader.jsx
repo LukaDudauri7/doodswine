@@ -47,9 +47,7 @@ const WineGlassLoader = () => {
 
   return (
     <div className="loader-container">
-      <h1 className="brand-title">
-        DOOD'S WINE
-      </h1>
+      {/* <h1 className="brand-title"> DOOD'S WINE</h1> */}
 
       <div className="wine-glass-wrapper">
         <div className="wine-glass-body">
@@ -66,7 +64,7 @@ const WineGlassLoader = () => {
           ))}
         </div>
 
-        <div className="wine-glass-top-ring" />
+        {/* <div className="wine-glass-top-ring" /> */}
         <div className="wine-glass-stem" />
         <div className="wine-glass-base" />
       </div>
