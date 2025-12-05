@@ -11,14 +11,11 @@ const WineGlassLoader = () => {
     'Almost ready...'
   ];
 
-  // კონფიგურაციის ცვლადები:
-  const intervalTime = 40; // მილიწამები ინტერვალებს შორის
-  const totalDurationSeconds = 2.5; // მთლიანი ლოადერის სასურველი დრო წამებში (მაგ. 2.5 წამი)
+  const intervalTime = 40;
+  const totalDurationSeconds = 2.5;
 
   useEffect(() => {
-    // გამოვთვლით, რამდენი "ნაბიჯი" უნდა გაიაროს პროგრესმა
     const totalSteps = (totalDurationSeconds * 1000) / intervalTime;
-    // გამოვთვლით, რამდენი პროცენტით უნდა გაიზარდოს პროგრესი ერთ ნაბიჯზე
     const progressPerStep = 100 / totalSteps;
 
     const interval = setInterval(() => {

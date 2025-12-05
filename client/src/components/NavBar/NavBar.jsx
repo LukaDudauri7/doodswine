@@ -27,8 +27,8 @@ function NavBar({ user, logout, openModal, captions }) {
       <Link to="/wine" onClick={() => setIsMenuOpen(false)}>{captions.headerProducts}</Link>
       <div className="divider" />
       <Link to="/about" onClick={() => setIsMenuOpen(false)}>{captions.headerAbout}</Link>
-      <div className="divider" />
-      <Link to="/contact" onClick={() => setIsMenuOpen(false)}>{captions.headerContact}</Link>
+      {/* <div className="divider" />
+      <Link to="/contact" onClick={() => setIsMenuOpen(false)}>{captions.headerContact}</Link> */}
     </>
   );
 
