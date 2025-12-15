@@ -32,7 +32,7 @@ const BottleDesign = ({ user, openModal }) => {
     };
     const handleSave = async () => {
         if (!user) {
-            alert("გთხოვთ გაიაროთ ავტორიზაცია.");
+            alert(content.authRequired);
             openModal("login");
             return;
         }
@@ -59,10 +59,10 @@ const BottleDesign = ({ user, openModal }) => {
                 }
             );
 
-            alert("თქვენი ეტიკეტი წარმატებით შეინახა!");
+            alert(content.savedLabel);
         } catch (err) {
             console.error(err);
-            alert("შეცდომა მოხდა შენახვისას.");
+            alert(content.saveError);
         }
     };
 
@@ -152,7 +152,7 @@ const BottleDesign = ({ user, openModal }) => {
                                 variants={childVariants}
                                 value={labelText}
                                 onChange={(e) => setLabelText(e.target.value)}
-                                placeholder={"ჩაწერეთ ტექსტი...\n (Enter - ახალი ხაზი)"}
+                                placeholder={content.labelPlaceholder}
                                 rows="3"
                             />
                         </motion.div>

@@ -38,7 +38,11 @@
       "cap": "ჩაჩის ფერი",
       "header": "შეარჩიე შენი დიზაინი",
       "chooseFile": "ფაილის არჩევა",
-      "uploadPhoto": "ატვირთეთ ეტიკეტის ფოტო"
+      "uploadPhoto": "ატვირთეთ ეტიკეტის ფოტო",
+      "authRequired": "გთხოვთ გაიაროთ ავტორიზაცია.",
+      "savedLabel": "თქვენი ეტიკეტი წარმატებით შეინახა!",
+      "saveError": "შეცდომა მოხდა შენახვისას.",
+      "labelPlaceholder": "ჩაწერეთ ტექსტი...\n (Enter - ახალი ხაზი)"
     }
   },
 
@@ -82,7 +86,11 @@
       "cap": "Cap Color",
       "header": "Choose Your Design",
       "chooseFile": "Choose File",
-      "uploadPhoto": "Upload Label Photo"
+      "uploadPhoto": "Upload Label Photo",
+      "authRequired": "Please log in.",
+      "savedLabel": "Your label has been saved successfully!",
+      "saveError": "An error occurred while saving.",
+      "labelPlaceholder": "Enter text...\n (Enter - new line)"
     }
   }
 }
