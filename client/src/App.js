@@ -13,6 +13,8 @@ import { useLanguage } from './languageContext';
 import captions from './captions.json';
 import "./App.css";
 import "./fonts.css";
+import axios from "axios";
+
 
 function AppContent() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,6 +24,12 @@ function AppContent() {
   const { language } = useLanguage();
   const content = captions[language].header;
   const location = useLocation();
+
+  const API = process.env.REACT_APP_API_URL || "https://doodswine.onrender.com";
+
+  useEffect(() => {
+    axios.get(`${API}/api/auth/health`).catch(() => {});
+  }, []);
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("user"));

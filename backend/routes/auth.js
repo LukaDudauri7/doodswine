@@ -4,9 +4,8 @@ const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const jwt = require("jsonwebtoken");
 
-router.get('/test', async (req, res) => {
-  console.log("TEST REQUEST");
-  return res.status(201).json({ message: 'Fill in all fields' });
+router.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
 });
 
 router.post('/register', async (req, res) => {
