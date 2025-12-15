@@ -35,7 +35,6 @@ const BottleDesign = ({ user, openModal }) => {
         reader.readAsDataURL(file);
     };
 
-    // 👉 Save ღილაკი
     const handleSave = () => {
         if (!user) {
             alert(content.authRequired);
@@ -45,7 +44,6 @@ const BottleDesign = ({ user, openModal }) => {
         setShowPhoneModal(true);
     };
 
-    // 👉 რეალური შენახვა ტელეფონის შემდეგ
     const submitLabel = async () => {
         if (!phone) {
             alert("შეიყვანეთ ტელეფონის ნომერი");
@@ -164,13 +162,9 @@ const BottleDesign = ({ user, openModal }) => {
                 ×
             </button>
 
-            <h2 className="popup-title">
-                დაგვიტოვეთ ნომერი
-            </h2>
+            <h2 className="popup-title">{content.phonePrompt}</h2>
 
-            <p className="popup-text">
-                დიზაინისა დასაზუსტებლად დაგიკავშირდებით WhatsApp-ზე.
-            </p>
+            <p className="popup-text">{content.phoneNote}</p>
 
             <input
                 type="tel"
@@ -185,7 +179,7 @@ const BottleDesign = ({ user, openModal }) => {
                 onClick={submitLabel}
                 disabled={saving}
             >
-                {saving ? "იგზავნება..." : "დადასტურება"}
+                {saving ? content.sending : content.confirm}
             </button>
 
             </div>

@@ -42,7 +42,11 @@
       "authRequired": "გთხოვთ გაიაროთ ავტორიზაცია.",
       "savedLabel": "თქვენი ეტიკეტი წარმატებით შეინახა!",
       "saveError": "შეცდომა მოხდა შენახვისას.",
-      "labelPlaceholder": "ჩაწერეთ ტექსტი...\n (Enter - ახალი ხაზი)"
+      "labelPlaceholder": "ჩაწერეთ ტექსტი...\n (Enter - ახალი ხაზი)",
+      "phonePrompt": "დაგვიტოვეთ ნომერი",
+      "phoneNote": "დიზაინისა დასაზუსტებლად დაგიკავშირდებით WhatsApp-ზე.",
+      "sending": "იგზავნება...",
+      "confirm": "დადასტურება"
     }
   },
 
@@ -90,7 +94,11 @@
       "authRequired": "Please log in.",
       "savedLabel": "Your label has been saved successfully!",
       "saveError": "An error occurred while saving.",
-      "labelPlaceholder": "Enter text...\n (Enter - new line)"
+      "labelPlaceholder": "Enter text...\n (Enter - new line)",
+      "phonePrompt": "Leave us your phone number",
+      "phoneNote": "We will contact you via WhatsApp to finalize the design.",
+      "sending": "Sending...",
+      "confirm": "Confirm"
     }
   }
 }
