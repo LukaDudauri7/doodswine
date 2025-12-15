@@ -122,6 +122,7 @@ label, p {
   position: relative;
   display: block;
   font-family: 'poppins';
+  line-height: 20px;
 }
 
 .upload-area:hover {
