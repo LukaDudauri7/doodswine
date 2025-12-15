@@ -8,26 +8,45 @@ const upload = require("../middleware/upload");
 
 router.post("/", auth, upload.single("image"), async (req, res) => {
     try {
+        // 👇 1️⃣ ნახე რეალურად რა მოდის
+        console.log("REQ BODY:", req.body);
+        console.log("REQ FILE:", req.file);
+
+        const { labelText, capColor, phone } = req.body;
+
+        // 👇 2️⃣ მკაცრი ვალიდაცია (ეს იყო მთავარი რაც გაკლდა)
+        if (!labelText || !capColor || !phone) {
+            return res.status(400).json({
+                error: "Missing required fields",
+                body: req.body
+            });
+        }
+
         const newLabel = new Label({
             userId: req.user.id,
             name: req.user.name,
             email: req.user.email,
-            labelText: req.body.labelText,
-            capColor: req.body.capColor,
-            image: req.file ? req.file.path : null   // ← Cloudinary URL
+            labelText,
+            capColor,
+            image: req.file ? req.file.path : null,
+            phone
         });
 
         await newLabel.save();
 
-        res.json({ success: true, label: newLabel });
+        res.status(201).json({
+            success: true,
+            label: newLabel
+        });
 
     } catch (err) {
-        console.error(err);
+        console.error("LABEL SAVE ERROR:", err);
         res.status(500).json({ error: "Server error" });
     }
 });
 
-router.get("/all", async (req, res) => {
+
+router.get("/all", auth, async (req, res) => {
     try {
         const labels = await Label.find().sort({ createdAt: -1 });
 
@@ -44,45 +63,3 @@ router.get("/all", async (req, res) => {
 
 
 module.exports = router;
-
-// Multer storage
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb) => cb(null, path.join(__dirname, "../uploads")),
-//     filename: (req, file, cb) => {
-//         const uniqueName = Date.now() + "-" + file.originalname;
-//         cb(null, uniqueName);
-//     }
-// });
-
-// const upload = multer({ storage });
-
-// // POST /api/label  (Protected)
-// router.post("/", auth, upload.single("labelImage"), async (req, res) => {
-//     try {
-//         const { labelText, capColor } = req.body;
-
-//         // req.user მოდის JWT-დან
-//         const newLabel = new Label({
-//             userId: req.user.id,
-//             name: req.user.name,
-//             email: req.user.email,
-//             labelText,
-//             capColor,
-//             image: req.file ? req.file.filename : null
-//         });
-
-//         await newLabel.save();
-
-//         res.json({
-//             success: true,
-//             message: "Label saved",
-//             data: newLabel
-//         });
-
-//     } catch (err) {
-//         console.error(err);
-//         res.status(500).json({ message: "Upload failed" });
-//     }
-// });
-
-// module.exports = router;

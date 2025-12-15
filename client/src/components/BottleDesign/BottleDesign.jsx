@@ -6,12 +6,20 @@ import { useLanguage } from '../../languageContext.js';
 import { motion } from 'framer-motion';
 import axios from "axios";
 
+const API = process.env.REACT_APP_API_URL || "https://doodswine.onrender.com";
+
 const BottleDesign = ({ user, openModal }) => {
     const { language } = useLanguage();
     const content = captions[language].bottleDesign;
 
     const [labelImage, setLabelImage] = useState(null);
     const [labelImageBase64, setLabelImageBase64] = useState(null);
+    const [labelText, setLabelText] = useState("DOOD'S WINE");
+    const [capColor, setCapColor] = useState("#990000");
+
+    const [showPhoneModal, setShowPhoneModal] = useState(false);
+    const [phone, setPhone] = useState("");
+    const [saving, setSaving] = useState(false);
 
     const predefinedColors = [
         { name: "წითელი", value: "#990000" },
@@ -21,114 +29,96 @@ const BottleDesign = ({ user, openModal }) => {
         { name: "თეთრი", value: "#FFFFFF" }
     ];
 
-    const [labelText, setLabelText] = useState("DOOD'S WINE");
-    const [capColor, setCapColor] = useState(predefinedColors[0].value);
-
-    // Convert uploaded image → Base64
     const convertToBase64 = (file) => {
         const reader = new FileReader();
         reader.onloadend = () => setLabelImageBase64(reader.result);
         reader.readAsDataURL(file);
     };
-    const handleSave = async () => {
+
+    // 👉 Save ღილაკი
+    const handleSave = () => {
         if (!user) {
             alert(content.authRequired);
             openModal("login");
             return;
         }
+        setShowPhoneModal(true);
+    };
 
-        const fileInput = document.querySelector("input[type='file']");
-        const file = fileInput?.files?.[0];
+    // 👉 რეალური შენახვა ტელეფონის შემდეგ
+    const submitLabel = async () => {
+        if (!phone) {
+            alert("შეიყვანეთ ტელეფონის ნომერი");
+            return;
+        }
 
         const formData = new FormData();
         formData.append("labelText", labelText);
         formData.append("capColor", capColor);
+        formData.append("phone", phone);
 
-        if (file) {
-            formData.append("image", file);
+        const fileInput = document.querySelector("input[type='file']");
+        if (fileInput?.files?.[0]) {
+            formData.append("image", fileInput.files[0]);
         }
 
         try {
-            await axios.post(
-                `${process.env.REACT_APP_API_URL}/api/label`,
-                formData,
-                {
-                    headers: {
-                        "x-auth-token": user.token
-                    }
+            setSaving(true);
+            await axios.post(`${API}/api/label`, formData, {
+                headers: {
+                    "x-auth-token": user.token
                 }
-            );
+            });
 
             alert(content.savedLabel);
+            setShowPhoneModal(false);
+            setPhone("");
         } catch (err) {
             console.error(err);
             alert(content.saveError);
+        } finally {
+            setSaving(false);
         }
     };
 
-    // Animations
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { when: "beforeChildren", staggerChildren: 0.2 },
-        },
-    };
-
-    const childVariants = {
-        hidden: { opacity: 0, y: 40 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.25, ease: "easeOut" },
-        },
-    };
-
     return (
+        <>
         <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             className='bottle-design-section'
         >
-            <motion.h1 className='chooseText' variants={childVariants}>{content.header}</motion.h1>
-
-       
+            <motion.h1 className='chooseText'>{content.header}</motion.h1>
 
             <div className="bottle-design-container">
 
-                <motion.div className="container" variants={childVariants}>
-
-                    <motion.p variants={childVariants}>{content.cap}</motion.p>
-
-                    <motion.div className="color-options" variants={childVariants}>
+                <div className="container">
+                    <p>{content.cap}</p>
+                    <div className="color-options">
                         {predefinedColors.map((color, index) => (
-                            <motion.button
+                            <button
                                 key={index}
                                 type="button"
                                 onClick={() => setCapColor(color.value)}
                                 className={`color-circle ${capColor === color.value ? 'selected' : ''}`}
                                 style={{ backgroundColor: color.value }}
-                                whileHover={{ scale: 1.15 }}
-                                whileTap={{ scale: 0.95 }}
                             >
                                 {capColor === color.value && <span className="color-checkmark">✓</span>}
-                            </motion.button>
+                            </button>
                         ))}
-                    </motion.div>
+                    </div>
+                </div>
 
-                </motion.div>
-
-                <motion.div variants={childVariants} className='wine-customizer-wrapper'>
-                    <WineCustomizer 
-                        capColor={capColor} 
-                        labelText={labelText} 
-                        labelImage={labelImageBase64} 
+                <div className='wine-customizer-wrapper'>
+                    <WineCustomizer
+                        capColor={capColor}
+                        labelText={labelText}
+                        labelImage={labelImageBase64}
                     />
-                </motion.div>
+                </div>
 
-                <motion.div className="upload-box" variants={childVariants}>
+                <div className="upload-box">
                     <div className="center-box">
                         <h2>{content.uploadPhoto}</h2>
                         <label className="upload-area">
@@ -139,35 +129,70 @@ const BottleDesign = ({ user, openModal }) => {
                                 onChange={(e) => {
                                     const file = e.target.files[0];
                                     if (file) {
-                                        const url = URL.createObjectURL(file);
-                                        setLabelImage(url);
+                                        setLabelImage(URL.createObjectURL(file));
                                         convertToBase64(file);
                                     }
                                 }}
                             />
                         </label>
-                        <motion.div className="label-group" variants={childVariants}>
-                            <motion.label variants={childVariants}>{content.label}</motion.label>
-                            <motion.textarea
-                                variants={childVariants}
-                                value={labelText}
-                                onChange={(e) => setLabelText(e.target.value)}
-                                placeholder={content.labelPlaceholder}
-                                rows="3"
-                            />
-                        </motion.div>
+
+                        <label>{content.label}</label>
+                        <textarea
+                            value={labelText}
+                            onChange={(e) => setLabelText(e.target.value)}
+                            placeholder={content.labelPlaceholder}
+                            rows="3"
+                        />
                     </div>
-                    <motion.button
-                        className="save-label-btn"
-                        variants={childVariants}
-                        onClick={handleSave}
-                    >
+
+                    <button className="save-label-btn" onClick={handleSave}>
                         {content.save}
-                    </motion.button>
-                </motion.div>
-      
+                    </button>
+                </div>
+
             </div>
         </motion.div>
+
+        {showPhoneModal && (
+        <div className="popup-overlay" onClick={() => setShowPhoneModal(false)}>
+            <div className="popup-card" onClick={(e) => e.stopPropagation()}>
+            
+            <button
+                className="popup-close"
+                onClick={() => setShowPhoneModal(false)}
+            >
+                ×
+            </button>
+
+            <h2 className="popup-title">
+                დაგვიტოვეთ ნომერი
+            </h2>
+
+            <p className="popup-text">
+                დიზაინისა დასაზუსტებლად დაგიკავშირდებით WhatsApp-ზე.
+            </p>
+
+            <input
+                type="tel"
+                className="popup-input"
+                placeholder="+995 5XX XX XX XX"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+            />
+
+            <button
+                className="popup-confirm"
+                onClick={submitLabel}
+                disabled={saving}
+            >
+                {saving ? "იგზავნება..." : "დადასტურება"}
+            </button>
+
+            </div>
+        </div>
+        )}
+
+        </>
     );
 };
 
