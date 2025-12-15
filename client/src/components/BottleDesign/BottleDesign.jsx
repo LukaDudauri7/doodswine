@@ -163,7 +163,6 @@ const BottleDesign = ({ user, openModal }) => {
             </button>
 
             <h2 className="popup-title">{content.phonePrompt}</h2>
-
             <p className="popup-text">{content.phoneNote}</p>
 
             <input
