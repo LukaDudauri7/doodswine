@@ -22,6 +22,7 @@ function AuthModal({ type, onClose, setUser }) {
           confirmPassword
         });
         alert("Account created!");
+        return;
       } else {
         res = await axios.post(`${API}/api/auth/login`, {
           email,

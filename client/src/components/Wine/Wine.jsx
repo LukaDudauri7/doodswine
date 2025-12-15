@@ -26,18 +26,18 @@ const Wine = () => {
       description: content.chinebuliDesc,
       price: '₾40',
     },
-    {
-      name: content.aladasturi,
-      image: '/images/3.jpg',
-      description: content.aladasturiDesc,
-      price: '₾45',
-    },
-    {
-      name: content.dirbula,
-      image: '/images/2.jpg',
-      description: content.dirbulaDesc,
-      price: '₾40',
-    },
+    // {
+    //   name: content.aladasturi,
+    //   image: '/images/3.jpg',
+    //   description: content.aladasturiDesc,
+    //   price: '₾45',
+    // },
+    // {
+    //   name: content.dirbula,
+    //   image: '/images/2.jpg',
+    //   description: content.dirbulaDesc,
+    //   price: '₾40',
+    // },
   ];
 
   return (
