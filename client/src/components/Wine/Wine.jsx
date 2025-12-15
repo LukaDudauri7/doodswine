@@ -18,13 +18,13 @@ const Wine = () => {
       name: content.rkatsiteli,
       image: '/images/2.jpg',
       description: content.rkatsiteliDesc,
-      price: '₾40',
+      price: '₾45',
     },
     {
       name: content.chinebuli,
       image: '/images/1.jpg',
       description: content.chinebuliDesc,
-      price: '₾40',
+      price: '₾45',
     },
     // {
     //   name: content.aladasturi,

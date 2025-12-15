@@ -5,10 +5,19 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { Suspense } from "react";
 import "./WineCustomizer.css";
 
+/*
+  layout:
+    "text-image"  -> TEXT ზემოთ, IMAGE ქვემოთ
+    "image-text"  -> IMAGE ზემოთ, TEXT ქვემოთ
+*/
+
 function WineBottle({
   labelText = "",
   capColor = "#8B0000",
-  labelImage = null
+  labelImage = null,
+  textSize = "medium",        // small | medium | large
+  textPosition = "center",    // top | center | bottom
+  layout = "text-image"       // text-image | image-text
 }) {
   const { nodes } = useGLTF("/models/wine_bottle.glb");
   const { invalidate } = useThree();
@@ -19,23 +28,33 @@ function WineBottle({
   const canvasRef = useRef(null);
   const textureRef = useRef(null);
 
+  /* ---------- CONFIG ---------- */
+
+  const textSizeMap = {
+    small: 90,
+    medium: 130,
+    large: 170
+  };
+
+  /* ---------- HELPERS ---------- */
+
   const fitText = (ctx, text, maxWidth, startSize) => {
     let size = startSize;
-    while (size > 18) {
+    while (size > 22) {
       ctx.font = `bold ${size}px Georgia, serif`;
       if (ctx.measureText(text).width <= maxWidth) return size;
       size -= 4;
     }
-    return 18;
+    return 22;
   };
 
+  // ფოტო სრულად ჩანს, მაქსიმალურად დიდი (contain)
   const drawImageContain = (ctx, img, x, y, w, h) => {
     const imgRatio = img.width / img.height;
     const boxRatio = w / h;
 
     let drawW, drawH;
-    let offsetX = 0;
-    let offsetY = 0;
+    let offsetX = 0, offsetY = 0;
 
     if (imgRatio > boxRatio) {
       drawW = w;
@@ -49,6 +68,8 @@ function WineBottle({
 
     ctx.drawImage(img, x + offsetX, y + offsetY, drawW, drawH);
   };
+
+  /* ---------- INIT CANVAS ---------- */
 
   useEffect(() => {
     const canvas = document.createElement("canvas");
@@ -68,6 +89,8 @@ function WineBottle({
     }
   }, []);
 
+  /* ---------- DRAW LABEL ---------- */
+
   useEffect(() => {
     if (!canvasRef.current || !textureRef.current) return;
 
@@ -81,9 +104,21 @@ function WineBottle({
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    const imageHeight = hasImage && hasText ? canvas.height * 0.7 : canvas.height;
-    const textHeight = hasImage && hasText ? canvas.height * 0.3 : canvas.height;
+    // --- ზონების ზომები
+    const totalH = canvas.height;
+    const textRatio = hasText && hasImage ? 0.35 : 1;
+    const imageRatio = hasText && hasImage ? 0.65 : 1;
 
+    const textAreaH = totalH * textRatio;
+    const imageAreaH = totalH * imageRatio;
+
+    // --- ვინ არის ზემოთ
+    const isTextFirst = !hasImage || layout === "text-image";
+
+    const textAreaY = isTextFirst ? 0 : imageAreaH;
+    const imageAreaY = isTextFirst ? textAreaH : 0;
+
+    /* ----- TEXT ----- */
     const drawText = () => {
       if (!hasText) return;
 
@@ -93,12 +128,15 @@ function WineBottle({
 
       const padding = 140;
       const maxWidth = canvas.width - padding * 2;
-      const fontSize = fitText(ctx, labelText.trim(), maxWidth, 140);
+      const baseSize = textSizeMap[textSize] || 130;
+      const fontSize = fitText(ctx, labelText.trim(), maxWidth, baseSize);
+
       ctx.font = `bold ${fontSize}px Georgia, serif`;
 
-      const y = hasImage
-        ? imageHeight + textHeight / 2
-        : canvas.height / 2;
+      let y;
+      if (textPosition === "top") y = textAreaY + textAreaH * 0.25;
+      else if (textPosition === "center") y = textAreaY + textAreaH / 2;
+      else y = textAreaY + textAreaH * 0.75;
 
       ctx.fillText(labelText.trim(), canvas.width / 2, y);
     };
@@ -108,13 +146,22 @@ function WineBottle({
       invalidate();
     };
 
+    /* ----- IMAGE ----- */
     if (hasImage) {
       const img = new Image();
       img.crossOrigin = "anonymous";
       img.src = labelImage;
 
       img.onload = () => {
-        drawImageContain(ctx, img, 0, 0, canvas.width, imageHeight);
+        drawImageContain(
+          ctx,
+          img,
+          0,
+          imageAreaY,
+          canvas.width,
+          imageAreaH
+        );
+
         drawText();
         finish();
       };
@@ -127,7 +174,9 @@ function WineBottle({
       drawText();
       finish();
     }
-  }, [labelText, labelImage, invalidate]);
+  }, [labelText, labelImage, textSize, textPosition, layout, invalidate]);
+
+  /* ---------- CAP COLOR ---------- */
 
   useEffect(() => {
     if (capRef.current?.material) {
@@ -148,7 +197,11 @@ function WineBottle({
   ];
 
   return (
-    <group scale={[0.8, 0.8, 0.8]} position={[0, -1.6, 0]} rotation={[Math.PI, 0, 0]}>
+    <group
+      scale={[0.8, 0.8, 0.8]}
+      position={[0, -1.6, 0]}
+      rotation={[Math.PI, 0, 0]}
+    >
       {meshKeys.map((key) => (
         <mesh
           key={key}
@@ -165,11 +218,7 @@ function WineBottle({
 
 useGLTF.preload("/models/wine_bottle.glb");
 
-export default function WineCustomizer({
-  capColor = "#8B0000",
-  labelText = "",
-  labelImage = null,
-}) {
+export default function WineCustomizer(props) {
   return (
     <Canvas
       frameloop="demand"
@@ -181,11 +230,7 @@ export default function WineCustomizer({
       <directionalLight position={[5, 10, 5]} intensity={2} />
 
       <Suspense fallback={null}>
-        <WineBottle
-          capColor={capColor}
-          labelText={labelText}
-          labelImage={labelImage}
-        />
+        <WineBottle {...props} />
       </Suspense>
 
       <OrbitControls enableZoom={false} />
