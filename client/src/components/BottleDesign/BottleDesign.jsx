@@ -120,21 +120,21 @@ const BottleDesign = ({ user, openModal }) => {
           <div className="upload-box">
             <div className="label-controls">
                 <div className="control-section">
-                <p>ეტიკეტის განლაგება</p>
+                <p>{content.labelLayout}</p>
 
                 <div className="control-buttons">
                     <button
-                    className={layout === "text-image" ? "active" : ""}
-                    onClick={() => setLayout("text-image")}
+                      className={layout === "text-image" ? "active" : ""}
+                      onClick={() => setLayout("text-image")}
                     >
-                    ტექსტი ზემოთ
+                    {content.textAbove}
                     </button>
 
                     <button
-                    className={layout === "image-text" ? "active" : ""}
-                    onClick={() => setLayout("image-text")}
+                      className={layout === "image-text" ? "active" : ""}
+                      onClick={() => setLayout("image-text")}
                     >
-                    ფოტო ზემოთ
+                    {content.imageAbove}
                     </button>
                 </div>
                 </div>

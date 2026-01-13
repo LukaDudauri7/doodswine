@@ -46,7 +46,10 @@
       "phonePrompt": "დაგვიტოვეთ ნომერი",
       "phoneNote": "დიზაინისა დასაზუსტებლად დაგიკავშირდებით WhatsApp-ზე.",
       "sending": "იგზავნება...",
-      "confirm": "დადასტურება"
+      "confirm": "დადასტურება",
+      "textAbove": "ტექსტი ზემოთ",
+      "imageAbove": "ფოტო ზემოთ",
+      "labelLayout": "ეტიკეტის განლაგება"
     }
   },
 
@@ -98,7 +101,10 @@
       "phonePrompt": "Leave us your phone number",
       "phoneNote": "We will contact you via WhatsApp to finalize the design.",
       "sending": "Sending...",
-      "confirm": "Confirm"
+      "confirm": "Confirm",
+      "textAbove": "Text Above",
+      "imageAbove": "Image Above",
+      "labelLayout": "Label Layout"
     }
   }
 }

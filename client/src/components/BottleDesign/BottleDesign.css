@@ -81,6 +81,7 @@ label, p {
 /* Upload area */
 .center-box {
   width: 100%;
+  height: 300px;
   max-width: 360px;
   margin: 40px auto;
   padding: 5px 5px;
@@ -320,7 +321,7 @@ label, p {
 }
 
 .control-buttons button:hover {
-  background: #555555;
+  background: #cfcfcf;
 }
 
 .control-buttons button.active {
