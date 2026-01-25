@@ -99,8 +99,9 @@ label, p {
 
 .center-box h2 {
   font-size: 18px;
-  color: #4a3b0a;
-  margin-bottom: 8px;
+  color: #4a3b0a;    
+  position: relative;
+  top: -10px;
   font-weight: 700;
 }
 
@@ -111,7 +112,7 @@ label, p {
 }
 
 .upload-area {
-  width: 75%;
+  width: 57%;
   height: 20px;
   padding: 14px;
   border: 2px dashed #c5a200;
@@ -375,6 +376,6 @@ label, p {
     height: 35px;
   }
   .upload-area {
-    width: 60%;
+    width: 50%;
   }
 }
