@@ -11,6 +11,12 @@ import "./WineCustomizer.css";
     "image-text"  -> IMAGE ზემოთ, TEXT ქვემოთ
 */
 
+const textSizeMap = {
+  small: 90,
+  medium: 130,
+  large: 170
+};
+
 function WineBottle({
   labelText = "",
   capColor = "#8B0000",
@@ -27,14 +33,6 @@ function WineBottle({
 
   const canvasRef = useRef(null);
   const textureRef = useRef(null);
-
-  /* ---------- CONFIG ---------- */
-
-  const textSizeMap = {
-    small: 90,
-    medium: 130,
-    large: 170
-  };
 
   /* ---------- HELPERS ---------- */
 
@@ -174,7 +172,7 @@ function WineBottle({
       drawText();
       finish();
     }
-  }, [labelText, labelImage, textSize, textPosition, layout, textSizeMap, invalidate]);
+  }, [labelText, labelImage, textSize, textPosition, layout, invalidate]);
 
   /* ---------- CAP COLOR ---------- */
 

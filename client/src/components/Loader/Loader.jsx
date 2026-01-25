@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './Loader.css';
 
+const messages = [
+  'Crafting the wineა...',
+  'Quality in progress...',
+  'Almost ready...'
+];
+
 const WineGlassLoader = () => {
   const [progress, setProgress] = useState(0);
   const [loadingText, setLoadingText] = useState('ღვინის მომზადება...');
-
-  const messages = [
-    'Crafting the wineა...',
-    'Quality in progress...',
-    'Almost ready...'
-  ];
 
   const intervalTime = 40;
   const totalDurationSeconds = 2.5;
@@ -40,7 +40,7 @@ const WineGlassLoader = () => {
     }, intervalTime);
 
     return () => clearInterval(interval);
-  }, [intervalTime, totalDurationSeconds, messages]);
+  }, [intervalTime, totalDurationSeconds]);
 
   return (
     <div className="loader-container">
