@@ -41,11 +41,9 @@ function AuthModal({ type, onClose, setUser }) {
           email: res.data.user.email,
           token: res.data.token
       });
-      console.log("User:", res.data.user.name);
       onClose();
     } catch (error) {
       alert(error.response?.data?.message || "Something went wrong.");
-      console.error(error);
     }
   };
 

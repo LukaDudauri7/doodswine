@@ -73,7 +73,6 @@ const BottleDesign = ({ user, openModal }) => {
       setShowPhoneModal(false);
       setPhone("");
     } catch (err) {
-      console.error(err);
       alert(content.saveError);
     } finally {
       setSaving(false);
