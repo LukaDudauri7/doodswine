@@ -38,6 +38,10 @@ const BottleDesign = ({ user, openModal }) => {
     reader.readAsDataURL(file);
   };
 
+  const removeImage = () => {
+    setLabelImageBase64(null);
+  };
+
   const handleSave = () => {
     if (!user) {
       alert(content.authRequired);
@@ -152,6 +156,12 @@ const BottleDesign = ({ user, openModal }) => {
                   }
                 />
               </label>
+
+              {labelImageBase64 && (
+                <button className="remove-image-btn" onClick={removeImage}>
+                  🗑️ {content.removeImage}
+                </button>
+              )}
 
               <label>{content.label}</label>
               <textarea

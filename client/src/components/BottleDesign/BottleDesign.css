@@ -137,6 +137,29 @@ label, p {
   opacity: 0;
   pointer-events: none;
 }
+
+.remove-image-btn {
+  padding: 8px 16px;
+  border: none;
+  background: #734142;
+  color:#ca9d4f;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-family: 'poppins';
+}
+
+.remove-image-btn:hover {
+  background: #c9302c;
+  transform: translateY(-1px);
+}
+
+.remove-image-btn:active {
+  transform: scale(0.95);
+}
+
 .save-label-btn {
   padding: 12px 22px;
   border: none;
