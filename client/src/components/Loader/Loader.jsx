@@ -40,7 +40,7 @@ const WineGlassLoader = () => {
     }, intervalTime);
 
     return () => clearInterval(interval);
-  }, [intervalTime, totalDurationSeconds, messages.length]);
+  }, [intervalTime, totalDurationSeconds, messages]);
 
   return (
     <div className="loader-container">

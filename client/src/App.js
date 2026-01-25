@@ -29,7 +29,7 @@ function AppContent() {
 
   useEffect(() => {
     axios.get(`${API}/api/auth/health`).catch(() => {});
-  }, []);
+  }, [API]);
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("user"));

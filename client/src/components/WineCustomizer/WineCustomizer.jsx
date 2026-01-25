@@ -174,7 +174,7 @@ function WineBottle({
       drawText();
       finish();
     }
-  }, [labelText, labelImage, textSize, textPosition, layout, invalidate]);
+  }, [labelText, labelImage, textSize, textPosition, layout, textSizeMap, invalidate]);
 
   /* ---------- CAP COLOR ---------- */
 
