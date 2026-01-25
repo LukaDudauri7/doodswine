@@ -61,7 +61,6 @@ const WineGlassLoader = () => {
           ))}
         </div>
 
-        {/* <div className="wine-glass-top-ring" /> */}
         <div className="wine-glass-stem" />
         <div className="wine-glass-base" />
       </div>
