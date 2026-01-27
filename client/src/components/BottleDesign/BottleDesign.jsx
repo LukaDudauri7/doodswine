@@ -158,7 +158,7 @@ const BottleDesign = ({ user, openModal }) => {
 
               {labelImageBase64 && (
                 <button className="remove-image-btn" onClick={removeImage}>
-                  🗑️ {content.removeImage}
+                  {content.removeImage}
                 </button>
               )}
 
