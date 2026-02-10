@@ -69,16 +69,6 @@ function WineBottle({
     return allLines;
   };
 
-  const fitText = (ctx, text, maxWidth, startSize) => {
-    let size = startSize;
-    while (size > 22) {
-      ctx.font = `bold ${size}px Georgia, serif`;
-      if (ctx.measureText(text).width <= maxWidth) return size;
-      size -= 4;
-    }
-    return 22;
-  };
-
   const drawImageContain = (ctx, img, x, y, w, h) => {
     const imgRatio = img.width / img.height;
     const boxRatio = w / h;
