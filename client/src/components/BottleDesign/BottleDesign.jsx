@@ -129,6 +129,7 @@ const BottleDesign = ({ user, openModal }) => {
                     <button
                       className={layout === "text-image" ? "active" : ""}
                       onClick={() => setLayout("text-image")}
+                      disabled={!labelImageBase64 || !labelText.trim()}
                     >
                     {content.textAbove}
                     </button>
@@ -136,6 +137,7 @@ const BottleDesign = ({ user, openModal }) => {
                     <button
                       className={layout === "image-text" ? "active" : ""}
                       onClick={() => setLayout("image-text")}
+                      disabled={!labelImageBase64 || !labelText.trim()}
                     >
                     {content.imageAbove}
                     </button>

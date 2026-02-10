@@ -96,8 +96,8 @@ function WineBottle({
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     const totalH = canvas.height;
-    const textRatio = hasText && hasImage ? 0.35 : 1;
-    const imageRatio = hasText && hasImage ? 0.65 : 1;
+    const textRatio = hasText && hasImage ? 0.35 : (hasText ? 1 : 0);
+    const imageRatio = hasText && hasImage ? 0.65 : (hasImage ? 1 : 0);
 
     const textAreaH = totalH * textRatio;
     const imageAreaH = totalH * imageRatio;

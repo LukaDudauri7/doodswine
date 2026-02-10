@@ -352,6 +352,17 @@ label, p {
   color: #ca9d4f;
 }
 
+.control-buttons button:disabled {
+  background: #e0e0e0;
+  color: #999999;
+  cursor: auto;
+  opacity: 0.6;
+}
+
+.control-buttons button:disabled:hover {
+  background: #e0e0e0;
+}
+
 
 @media (max-width: 768px) {
   .bottle-design-container{
