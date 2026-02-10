@@ -152,7 +152,6 @@ label, p {
 }
 
 .remove-image-btn:hover {
-  background: #c9302c;
   transform: translateY(-1px);
 }
 
