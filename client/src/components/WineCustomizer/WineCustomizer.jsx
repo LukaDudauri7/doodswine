@@ -5,12 +5,6 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { Suspense } from "react";
 import "./WineCustomizer.css";
 
-/*
-  layout:
-    "text-image"  -> TEXT ზემოთ, IMAGE ქვემოთ
-    "image-text"  -> IMAGE ზემოთ, TEXT ქვემოთ
-*/
-
 const textSizeMap = {
   small: 90,
   medium: 130,
@@ -46,7 +40,6 @@ function WineBottle({
     return 22;
   };
 
-  // ფოტო სრულად ჩანს, მაქსიმალურად დიდი (contain)
   const drawImageContain = (ctx, img, x, y, w, h) => {
     const imgRatio = img.width / img.height;
     const boxRatio = w / h;
@@ -102,7 +95,6 @@ function WineBottle({
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // --- ზონების ზომები
     const totalH = canvas.height;
     const textRatio = hasText && hasImage ? 0.35 : 1;
     const imageRatio = hasText && hasImage ? 0.65 : 1;
@@ -110,7 +102,6 @@ function WineBottle({
     const textAreaH = totalH * textRatio;
     const imageAreaH = totalH * imageRatio;
 
-    // --- ვინ არის ზემოთ
     const isTextFirst = !hasImage || layout === "text-image";
 
     const textAreaY = isTextFirst ? 0 : imageAreaH;
