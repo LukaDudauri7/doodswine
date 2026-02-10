@@ -30,6 +30,45 @@ function WineBottle({
 
   /* ---------- HELPERS ---------- */
 
+  const wrapText = (ctx, text, maxWidth) => {
+    // First split by manual line breaks (Enter key)
+    const paragraphs = text.split('\n');
+    const allLines = [];
+
+    paragraphs.forEach((paragraph) => {
+      if (paragraph.trim() === '') {
+        allLines.push(''); // Empty line for spacing
+        return;
+      }
+
+      const words = paragraph.split(' ').filter(word => word.length > 0);
+      if (words.length === 0) {
+        allLines.push('');
+        return;
+      }
+
+      let currentLine = words[0];
+
+      for (let i = 1; i < words.length; i++) {
+        const testLine = currentLine + ' ' + words[i];
+        const metrics = ctx.measureText(testLine);
+        
+        if (metrics.width > maxWidth && currentLine.length > 0) {
+          allLines.push(currentLine);
+          currentLine = words[i];
+        } else {
+          currentLine = testLine;
+        }
+      }
+      
+      if (currentLine.length > 0) {
+        allLines.push(currentLine);
+      }
+    });
+
+    return allLines;
+  };
+
   const fitText = (ctx, text, maxWidth, startSize) => {
     let size = startSize;
     while (size > 22) {
@@ -96,8 +135,8 @@ function WineBottle({
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     const totalH = canvas.height;
-    const textRatio = hasText && hasImage ? 0.35 : (hasText ? 1 : 0);
-    const imageRatio = hasText && hasImage ? 0.65 : (hasImage ? 1 : 0);
+    const textRatio = hasText && hasImage ? 0.45 : (hasText ? 1 : 0);
+    const imageRatio = hasText && hasImage ? 0.55 : (hasImage ? 1 : 0);
 
     const textAreaH = totalH * textRatio;
     const imageAreaH = totalH * imageRatio;
@@ -118,16 +157,47 @@ function WineBottle({
       const padding = 140;
       const maxWidth = canvas.width - padding * 2;
       const baseSize = textSizeMap[textSize] || 130;
-      const fontSize = fitText(ctx, labelText.trim(), maxWidth, baseSize);
-
+      
+      // Set font to measure text properly
+      ctx.font = `bold ${baseSize}px Georgia, serif`;
+      
+      // Wrap text into multiple lines
+      let lines = wrapText(ctx, labelText.trim(), maxWidth);
+      
+      // Adjust font size if needed to fit all lines
+      let fontSize = baseSize;
+      let lineHeight = fontSize * 1.2;
+      let totalTextHeight = lines.length * lineHeight;
+      
+      // If text is too tall, reduce font size and re-wrap
+      if (totalTextHeight > textAreaH * 0.9) {
+        fontSize = Math.max(18, (textAreaH * 0.9) / (lines.length * 1.2));
+        ctx.font = `bold ${fontSize}px Georgia, serif`;
+        // Re-wrap with new font size
+        lines = wrapText(ctx, labelText.trim(), maxWidth);
+        lineHeight = fontSize * 1.2;
+      }
+      
       ctx.font = `bold ${fontSize}px Georgia, serif`;
+      const finalLineHeight = lineHeight;
 
-      let y;
-      if (textPosition === "top") y = textAreaY + textAreaH * 0.25;
-      else if (textPosition === "center") y = textAreaY + textAreaH / 2;
-      else y = textAreaY + textAreaH * 0.75;
+      // Calculate starting Y position to center all lines
+      let startY;
+      const totalHeight = lines.length * finalLineHeight;
+      
+      if (textPosition === "top") {
+        startY = textAreaY + textAreaH * 0.25 - (totalHeight / 2) + (finalLineHeight / 2);
+      } else if (textPosition === "center") {
+        startY = textAreaY + textAreaH / 2 - (totalHeight / 2) + (finalLineHeight / 2);
+      } else {
+        startY = textAreaY + textAreaH * 0.75 - (totalHeight / 2) + (finalLineHeight / 2);
+      }
 
-      ctx.fillText(labelText.trim(), canvas.width / 2, y);
+      // Draw each line
+      lines.forEach((line, index) => {
+        const y = startY + (index * finalLineHeight);
+        ctx.fillText(line, canvas.width / 2, y);
+      });
     };
 
     const finish = () => {
