@@ -2,8 +2,8 @@
   "ge": {
     "about": {
       "title": "ჩვენ შესახებ",
-      "shortText": "Dood's wine უძველეს ტრადიციებზე დაფუძნებული ღვინის მწარმოებელი კომპანიაა, რომელიც მაღალი ხარისხის პროდუქტის წარმოებაზეა ორიენტირებული. ჩვენი მიზანია მომხმარებელს შევთავაზოთ საუკეთესო ხარისხის ღვინო, რომელიც ასახავს ქართული ღვინის კულტურის მდიდარ ისტორიას და ტრადიციებს.",
-      "fullText": "Dood's wine  უძველეს ტრადიციებზე დაფუძნებული ღვინის მწარმოებელი კომპანიაა, რომელიც მაღალი ხარისხის პროდუქტის წარმოებაზეა ორიენტირებული. ჩვენი მიზანია მომხმარებელს შევთავაზოთ საუკეთესო ხარისხის ღვინო, რომელიც ასახავს ქართული ღვინის კულტურის მდიდარ ისტორიას და ტრადიციებს. დღესდღეობით, კომპანიის ასორტიმენტი ისეთ პრემიუმ ღვინოებს მოიცავს, როგორიცაა გორული მწვანე, ჩინებული, რქაწითელი, ალადასტური და დირბულა. ხოლო რაც შეეხება ღვინის ბოთლის დიზაინსა და ეტიკეტს, მათზეც ჩვენი გუნდი მუშაობს და რეალობაში გადმოაქვს ის იდეები და სურვილები, რასაც მომხმარებლები ისურვებენ.",
+      "shortText": "DOOD'S WINE უძველეს ტრადიციებზე დაფუძნებული ღვინის მწარმოებელი კომპანიაა, რომელიც მაღალი ხარისხის პროდუქტის წარმოებაზეა ორიენტირებული. ჩვენი მიზანია მომხმარებელს შევთავაზოთ საუკეთესო ხარისხის ღვინო, რომელიც ასახავს ქართული ღვინის კულტურის მდიდარ ისტორიას და ტრადიციებს.",
+      "fullText": "DOOD'S WINE  უძველეს ტრადიციებზე დაფუძნებული ღვინის მწარმოებელი კომპანიაა, რომელიც მაღალი ხარისხის პროდუქტის წარმოებაზეა ორიენტირებული. ჩვენი მიზანია მომხმარებელს შევთავაზოთ საუკეთესო ხარისხის ღვინო, რომელიც ასახავს ქართული ღვინის კულტურის მდიდარ ისტორიას და ტრადიციებს. დღესდღეობით, კომპანიის ასორტიმენტი ისეთ პრემიუმ ღვინოებს მოიცავს, როგორიცაა გორული მწვანე, ჩინებული, რქაწითელი, ალადასტური და დირბულა. ხოლო რაც შეეხება ღვინის ბოთლის დიზაინსა და ეტიკეტს, მათზეც ჩვენი გუნდი მუშაობს და რეალობაში გადმოაქვს ის იდეები და სურვილები, რასაც მომხმარებლები ისურვებენ.",
       "seeMore": "იხილეთ ვრცლად"
     },
     "home": {
@@ -16,7 +16,7 @@
         "headerContact": "კონტაქტი"
     },
     "footer": {
-        "copyright": "© 2025 წელი Dood's Wine. ყველა უფლება დაცულია.",
+        "copyright": "© 2025 წელი DOOD'S WINE. ყველა უფლება დაცულია.",
         "terms": "წესები და პირობები"
     },
     "wines": {
@@ -58,8 +58,8 @@
   "en": {
     "about": {
       "title": "About Us",
-      "shortText": "Dood's wine is a wine-producing company based on ancient traditions, focused on delivering high-quality products. Our goal is to offer the best quality wine that reflects the rich history and traditions of Georgian wine culture.",
-      "fullText": "Dood's wine is a wine-producing company rooted in ancient traditions, focused on delivering high-quality products. Our goal is to offer the best quality wine that reflects the rich history and traditions of Georgian wine culture. Today, the company offers a premium selection of wines including Goruli Mtsvane, Chinebuli, Rkatsiteli, Aladasturi, and Dirbula. As for the bottle design and labeling, our team is dedicated to bringing customer ideas and desires to life with each product.",
+      "shortText": "DOOD'S WINE is a wine-producing company based on ancient traditions, focused on delivering high-quality products. Our goal is to offer the best quality wine that reflects the rich history and traditions of Georgian wine culture.",
+      "fullText": "DOOD'S WINE is a wine-producing company rooted in ancient traditions, focused on delivering high-quality products. Our goal is to offer the best quality wine that reflects the rich history and traditions of Georgian wine culture. Today, the company offers a premium selection of wines including Goruli Mtsvane, Chinebuli, Rkatsiteli, Aladasturi, and Dirbula. As for the bottle design and labeling, our team is dedicated to bringing customer ideas and desires to life with each product.",
       "seeMore": "See more"
     },
     "home": {
@@ -72,7 +72,7 @@
         "headerContact": "CONTACT"
     },
     "footer": {
-        "copyright": "Copyright © 2025 Dood's Wine. All Rights Reserved.",
+        "copyright": "Copyright © 2025 DOOD'S WINE. All Rights Reserved.",
         "terms": "Terms and Conditions"
     },
     "wines": {
