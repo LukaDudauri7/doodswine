@@ -31,39 +31,63 @@ function WineBottle({
   /* ---------- HELPERS ---------- */
 
   const wrapText = (ctx, text, maxWidth) => {
-    // First split by manual line breaks (Enter key)
     const paragraphs = text.split('\n');
     const allLines = [];
 
-    paragraphs.forEach((paragraph) => {
-      if (paragraph.trim() === '') {
-        allLines.push(''); // Empty line for spacing
-        return;
+    const breakLongWord = (word) => {
+      const parts = [];
+      let current = '';
+
+      for (let i = 0; i < word.length; i++) {
+        const test = current + word[i];
+
+        if (ctx.measureText(test).width > maxWidth) {
+          if (current) parts.push(current);
+          current = word[i];
+        } else {
+          current = test;
+        }
       }
 
-      const words = paragraph.split(' ').filter(word => word.length > 0);
-      if (words.length === 0) {
+      if (current) parts.push(current);
+
+      return parts;
+    };
+
+    paragraphs.forEach((paragraph) => {
+      if (paragraph.trim() === '') {
         allLines.push('');
         return;
       }
 
-      let currentLine = words[0];
+      const words = paragraph.split(' ');
+      let currentLine = '';
 
-      for (let i = 1; i < words.length; i++) {
-        const testLine = currentLine + ' ' + words[i];
-        const metrics = ctx.measureText(testLine);
-        
-        if (metrics.width > maxWidth && currentLine.length > 0) {
-          allLines.push(currentLine);
-          currentLine = words[i];
+      for (let i = 0; i < words.length; i++) {
+        const word = words[i];
+
+        if (ctx.measureText(word).width > maxWidth) {
+          if (currentLine) {
+            allLines.push(currentLine);
+            currentLine = '';
+          }
+
+          const broken = breakLongWord(word);
+          allLines.push(...broken);
+          continue;
+        }
+
+        const testLine = currentLine ? currentLine + ' ' + word : word;
+
+        if (ctx.measureText(testLine).width > maxWidth) {
+          if (currentLine) allLines.push(currentLine);
+          currentLine = word;
         } else {
           currentLine = testLine;
         }
       }
-      
-      if (currentLine.length > 0) {
-        allLines.push(currentLine);
-      }
+
+      if (currentLine) allLines.push(currentLine);
     });
 
     return allLines;
