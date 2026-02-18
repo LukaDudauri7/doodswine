@@ -139,24 +139,29 @@ label, p {
 }
 
 .remove-image-btn {
-  padding: 8px 16px;
-  border: none;
-  background: #734142;
-  color:#ca9d4f;
-  font-weight: 500;
+  padding: 10px 20px;
+  border: 2px solid #ca9d4f;
+  background: transparent;
+  color: #734142;
+  font-weight: 600;
   font-size: 14px;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: 0.25s ease;
+  transition: all 0.3s ease;
   font-family: 'poppins';
+  margin: 10px 0;
 }
 
 .remove-image-btn:hover {
-  transform: translateY(-1px);
+  background: #734142;
+  color: #ca9d4f;
+  border-color: #734142;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(115, 65, 66, 0.3);
 }
 
 .remove-image-btn:active {
-  transform: scale(0.95);
+  transform: translateY(0) scale(0.98);
 }
 
 .save-label-btn {
