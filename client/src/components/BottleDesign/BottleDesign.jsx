@@ -16,9 +16,7 @@ const BottleDesign = ({ user, openModal }) => {
   const [labelText, setLabelText] = useState("DOOD'S WINE");
   const [capColor, setCapColor] = useState("#990000");
 
-  // ✅ ერთადერთი არჩევანი
   const [layout, setLayout] = useState("text-image"); 
-  // "text-image" | "image-text"
 
   const [showPhoneModal, setShowPhoneModal] = useState(false);
   const [phone, setPhone] = useState("");
@@ -61,7 +59,7 @@ const BottleDesign = ({ user, openModal }) => {
     formData.append("labelText", labelText);
     formData.append("capColor", capColor);
     formData.append("phone", phone);
-    formData.append("layout", layout); // სურვილის შემთხვევაში backend-ზე
+    formData.append("layout", layout);
 
     try {
       setSaving(true);
@@ -91,7 +89,6 @@ const BottleDesign = ({ user, openModal }) => {
 
         <div className="bottle-design-container">
 
-          {/* ===== LEFT CONTROLS ===== */}
           <div className="container">
             <p>{content.cap}</p>
 
