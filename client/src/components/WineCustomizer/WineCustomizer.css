@@ -18,7 +18,7 @@
 @media (max-width: 768px) {
   .canvas-container {
     width: 80% !important;
-    height: 65vh !important;
+    height: 65dvh !important;
     border-radius: 20px;
   }
 }
