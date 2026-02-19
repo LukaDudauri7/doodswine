@@ -249,24 +249,6 @@ function WineBottle({
     }
   }, [labelText, labelImage, textSize, textPosition, layout, invalidate]);
 
-
-  // viewport height fix
-
-  useEffect(() => {
-    const setVH = () => {
-      document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
-    };
-
-    setVH();
-    window.addEventListener("orientationchange", setVH);
-
-    return () => {
-      window.removeEventListener("orientationchange", setVH);
-    };
-  }, []);
-
-
-
   /* ---------- CAP COLOR ---------- */
 
   useEffect(() => {
