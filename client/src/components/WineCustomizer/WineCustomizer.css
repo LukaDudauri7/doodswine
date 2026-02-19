@@ -1,6 +1,6 @@
 .canvas-container {
   width: 75% !important;
-  height: 75vh !important;
+  height: calc(var(--vh) * 55) !important;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -15,17 +15,24 @@
   pointer-events: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .canvas-container {
     width: 80% !important;
-    height: 65dvh !important;
+    height: calc(var(--vh) * 45) !important;
     border-radius: 20px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) and (orientation: portrait) {
   .canvas-container {
     background-position: 35% 30%;
+    top: 20px;
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .canvas-container {
+    height: calc(var(--vh) * 145) !important;
     top: 20px;
   }
 }

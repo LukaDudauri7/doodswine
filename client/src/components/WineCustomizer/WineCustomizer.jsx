@@ -133,17 +133,6 @@ function WineBottle({
     }
   }, []);
 
-  useEffect(() => {
-    const setVH = () => {
-      document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
-  };
-
-  setVH();
-    window.addEventListener("resize", setVH);
-
-    return () => window.removeEventListener("resize", setVH);
-  }, []);
-
   /* ---------- DRAW LABEL ---------- */
 
   useEffect(() => {
@@ -259,6 +248,25 @@ function WineBottle({
       finish();
     }
   }, [labelText, labelImage, textSize, textPosition, layout, invalidate]);
+
+
+  // viewport height fix
+
+  useEffect(() => {
+    const setVH = () => {
+      document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
+    };
+
+    setVH();
+      window.addEventListener("resize", setVH);
+      window.addEventListener("orientationchange", setVH);
+
+    return () => {
+        window.removeEventListener("resize", setVH);
+        window.removeEventListener("orientationchange", setVH);
+    };
+  }, []);
+
 
   /* ---------- CAP COLOR ---------- */
 
