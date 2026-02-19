@@ -6,6 +6,9 @@
   background-color: #734142;
   width: 100%;
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 999;
   -webkit-backface-visibility: hidden;
 }
@@ -206,6 +209,11 @@
   }
   .App-nav {
     padding: 0;
+    position: fixed !important;
+    top: 0 !important;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    will-change: transform;
   }
   .home-title {
     font-size: 23px;
