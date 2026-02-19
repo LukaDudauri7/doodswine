@@ -71,4 +71,9 @@
   .social-link {
     width: 22px;
   }
+  .social-bar {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    top: 30%;
+  }
 }
