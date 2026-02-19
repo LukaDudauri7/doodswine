@@ -258,14 +258,13 @@ function WineBottle({
     };
 
     setVH();
-      window.addEventListener("resize", setVH);
-      window.addEventListener("orientationchange", setVH);
+    window.addEventListener("orientationchange", setVH);
 
     return () => {
-        window.removeEventListener("resize", setVH);
-        window.removeEventListener("orientationchange", setVH);
+      window.removeEventListener("orientationchange", setVH);
     };
   }, []);
+
 
 
   /* ---------- CAP COLOR ---------- */
